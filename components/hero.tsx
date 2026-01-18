@@ -28,14 +28,19 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
-                <Link href="/signup" className="flex items-center gap-2">
-                  Start Free Trial <ArrowRight size={20} />
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
+                <Link href="/menu" className="flex items-center gap-2">
+                  Try Customer Demo <ArrowRight size={20} />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/demo">Book a Demo</Link>
+                <Link href="/auth/login">Staff Login</Link>
               </Button>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3 text-sm text-primary underline cursor-pointer">
+                <Link href="/table/5">Simulate QR Scan (Table 5)</Link>
+                <Link href="/table/12">Simulate QR Scan (Table 12)</Link>
             </div>
 
             <div className="mt-12 pt-8 border-t border-border">

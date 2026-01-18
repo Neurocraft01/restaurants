@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Printer, Download, Home } from "lucide-react"
+import { Printer, Download, Home, RefreshCw } from "lucide-react"
 
 interface Order {
   id: string
@@ -27,6 +27,8 @@ export default function ReceiptPage() {
 
   useEffect(() => {
     fetchOrder()
+    const interval = setInterval(fetchOrder, 5000)
+    return () => clearInterval(interval)
   }, [params.id])
 
   const fetchOrder = async () => {
@@ -68,7 +70,7 @@ export default function ReceiptPage() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Card className="p-8 border-border text-center">
           <p className="text-muted-foreground mb-4">Order not found</p>
-          <Button onClick={() => router.push("/customer/menu")}>Return to Menu</Button>
+          <Button onClick={() => router.push("/menu")}>Return to Menu</Button>
         </Card>
       </div>
     )
@@ -80,6 +82,14 @@ export default function ReceiptPage() {
     preparing: "bg-purple-50 text-purple-800 border-purple-200",
     ready: "bg-green-50 text-green-800 border-green-200",
     completed: "bg-primary/10 text-primary border-primary/20",
+  }
+
+  const statusLabels: Record<string, string> = {
+    pending: "Order Placed",
+    confirmed: "Confirmed",
+    preparing: "Preparing",
+    ready: "Ready",
+    completed: "Completed"
   }
 
   return (
@@ -97,7 +107,7 @@ export default function ReceiptPage() {
               <Download className="w-4 h-4 mr-2" />
               Download
             </Button>
-            <Button onClick={() => router.push("/customer/menu")} variant="outline" size="sm" className="border-border">
+            <Button onClick={() => router.push("/menu")} variant="outline" size="sm" className="border-border">
               <Home className="w-4 h-4 mr-2" />
               Back to Menu
             </Button>
@@ -130,10 +140,14 @@ export default function ReceiptPage() {
               )}
             </div>
             <div>
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Order Status</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide flex items-center gap-2">
+                Order Status
+                <RefreshCw className="w-3 h-3 text-muted-foreground animate-spin" />
+              </p>
               <Badge className={`${statusColors[order.status] || statusColors.pending} border mt-1`}>
-                {order.status.toUpperCase()}
+                {statusLabels[order.status] || order.status}
               </Badge>
+              <p className="text-[10px] text-muted-foreground mt-1">Updates automatically</p>
             </div>
             <div>
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Order Date</p>

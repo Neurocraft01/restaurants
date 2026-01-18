@@ -1,14 +1,6 @@
-"use client"
-
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { redirect } from "next/navigation"
 
 export default function AdminRedirect() {
-  const router = useRouter()
-
-  useState(() => {
-    router.push("/admin/overview")
-  }, [router])
-
-  return <div />
+  redirect("/admin/overview")
 }
+

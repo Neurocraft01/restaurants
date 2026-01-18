@@ -71,7 +71,7 @@ export default function CustomerOrdersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-serif font-bold text-foreground">My Orders</h1>
           <div className="flex gap-4">
-            <Button variant="outline" size="sm" onClick={() => router.push("/customer/menu")}>
+            <Button variant="outline" size="sm" onClick={() => router.push("/menu")}>
               Continue Shopping
             </Button>
             <Button variant="ghost" size="sm" onClick={handleLogout}>
@@ -86,7 +86,7 @@ export default function CustomerOrdersPage() {
         {orders.length === 0 ? (
           <Card className="p-12 text-center border-border">
             <p className="text-muted-foreground mb-4">No orders yet</p>
-            <Button onClick={() => router.push("/customer/menu")}>Browse Menu</Button>
+            <Button onClick={() => router.push("/menu")}>Browse Menu</Button>
           </Card>
         ) : (
           <div className="space-y-4">
