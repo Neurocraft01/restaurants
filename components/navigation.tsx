@@ -21,25 +21,22 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="/menu" className="text-foreground hover:text-primary transition font-medium">
-            Live Demo Menu
+            Live Menu
           </Link>
-          <Link href="/admin" className="text-foreground hover:text-primary transition">
+          <Link href="/manager/dashboard" className="text-foreground hover:text-primary transition">
+            Kitchen View
+          </Link>
+          <Link href="/admin/overview" className="text-foreground hover:text-primary transition">
             Admin Suite
-          </Link>
-          <Link href="/analytics" className="text-foreground hover:text-primary transition">
-            Analytics
-          </Link>
-          <Link href="/pricing" className="text-foreground hover:text-primary transition">
-            Pricing
           </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" asChild>
-            <Link href="/login">Sign In</Link>
+            <Link href="/auth/login">Sign In</Link>
           </Button>
           <Button asChild>
-            <Link href="/signup">Start Free Trial</Link>
+            <Link href="/auth/register">Start Free Trial</Link>
           </Button>
         </div>
 
@@ -64,10 +61,10 @@ export function Navigation() {
                 Pricing
               </Link>
               <Button variant="outline" asChild className="w-full bg-transparent">
-                <Link href="/login">Sign In</Link>
+                <Link href="/auth/login">Sign In</Link>
               </Button>
               <Button asChild className="w-full">
-                <Link href="/signup">Start Free Trial</Link>
+                <Link href="/auth/register">Start Free Trial</Link>
               </Button>
             </div>
           </div>

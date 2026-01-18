@@ -22,7 +22,7 @@ export function CallToAction() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild className="text-primary hover:bg-white/90">
-                <Link href="/signup" className="flex items-center gap-2">
+                <Link href="/auth/register" className="flex items-center gap-2">
                   Start Your Free Trial <ArrowRight size={20} />
                 </Link>
               </Button>
@@ -30,9 +30,9 @@ export function CallToAction() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="bg-white/10 hover:bg-white/20 text-white border-white/30"
+                className="bg-transparent hover:bg-white/10 text-white border-white/60 hover:border-white"
               >
-                <Link href="/contact">Talk to Sales</Link>
+                <Link href="/pricing">View Pricing</Link>
               </Button>
             </div>
 

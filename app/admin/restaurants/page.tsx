@@ -98,46 +98,10 @@ export default function RestaurantsPage() {
               className="pl-10"
             />
           </div>
-          <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-            <DialogTrigger asChild>
-                <Button className="bg-primary hover:bg-primary/90">
-                    <Plus className="w-4 h-4 mr-2" />
-                    Add Restaurant
-                </Button>
-            </DialogTrigger>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>Add New Restaurant</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                    <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input 
-                            id="name" 
-                            value={newRestaurant.name} 
-                            onChange={(e) => setNewRestaurant({...newRestaurant, name: e.target.value})}
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <Label htmlFor="address">Address</Label>
-                        <Input 
-                            id="address" 
-                            value={newRestaurant.address} 
-                            onChange={(e) => setNewRestaurant({...newRestaurant, address: e.target.value})}
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <Label htmlFor="desc">Description</Label>
-                        <Input 
-                            id="desc" 
-                            value={newRestaurant.description} 
-                            onChange={(e) => setNewRestaurant({...newRestaurant, description: e.target.value})}
-                        />
-                    </div>
-                    <Button className="w-full" onClick={handleAddRestaurant}>Save Restaurant</Button>
-                </div>
-            </DialogContent>
-          </Dialog>
+          <Button className="bg-primary hover:bg-primary/90" onClick={() => router.push("/admin/restaurants/new")}>
+              <Plus className="w-4 h-4 mr-2" />
+              Add Restaurant
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

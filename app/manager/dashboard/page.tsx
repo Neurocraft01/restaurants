@@ -277,6 +277,9 @@ function OrderCard({
       <div className="flex justify-between items-center">
         <p className="font-serif font-bold text-primary">₹{order.totalAmount.toFixed(2)}</p>
         <div className="flex gap-2">
+          <Button variant="outline" size="sm" onClick={() => window.location.href = `/manager/orders/${order.id}`}>
+             View Details
+          </Button>
           {statusFlow[order.status]?.map((nextStatus) => (
             <Button
               key={nextStatus}

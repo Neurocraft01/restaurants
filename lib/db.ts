@@ -1,14 +1,20 @@
 // Mock database client for demonstration
 // Replace with actual database integration (Supabase, Neon, etc.)
 
-// In-memory storage for demo
-export const db = {
+// In-memory storage for demo - Persisted across HMR
+declare global {
+    var mockDb: any
+}
+
+export const db = globalThis.mockDb || {
   users: new Map(),
   restaurants: new Map(),
   menuItems: new Map(),
   orders: new Map(),
   analytics: new Map(),
 }
+
+if (process.env.NODE_ENV !== 'production') globalThis.mockDb = db
 
 // Seed data
 function seedData() {
@@ -160,6 +166,186 @@ function seedData() {
       category: "beverages",
       restaurantId: "rest-1",
       available: true,
+    },
+    {
+      id: "item-13",
+      name: "Calamari Fritti",
+      description: "Golden fried squid rings served with spicy marinara and lemon",
+      price: 11.99,
+      category: "starter",
+      restaurantId: "rest-1",
+      available: true,
+    },
+    {
+      id: "item-14",
+      name: "Caprese Salad",
+      description: "Vine-ripened tomatoes, fresh mozzarella, basil, and balsamic glaze",
+      price: 10.99,
+      category: "starter",
+      restaurantId: "rest-1",
+      available: true,
+    },
+    {
+        id: "item-15",
+        name: "Minestrone Soup",
+        description: "Hearty vegetable soup with beans and pasta",
+        price: 7.50,
+        category: "starter",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-16",
+        name: "Stuffed Mushrooms",
+        description: "Mushroom caps filled with herbs, cheese, and breadcrumbs",
+        price: 9.50,
+        category: "starter",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-17",
+        name: "Risotto Funghi",
+        description: "Creamy arborio rice with wild mushrooms and truffle oil",
+        price: 17.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-18",
+        name: "Lasagna Classica",
+        description: "Layers of pasta, meat sauce, béchamel, and parmesan cheese",
+        price: 16.50,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-19",
+        name: "Fettuccine Alfredo",
+        description: "Fettuccine pasta tossed in a rich parmesan cream sauce",
+        price: 15.50,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-20",
+        name: "Quattro Formaggi Pizza",
+        description: "Pizza topped with mozzarella, gorgonzola, parmesan, and fontina",
+        price: 14.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-21",
+        name: "Spaghetti Bolognese",
+        description: "Traditional slow-cooked meat tomato sauce over spaghetti",
+        price: 15.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-22",
+        name: "Ravioli Ricotta",
+        description: "Homemade pasta pillows filled with spinach and ricotta cheese",
+        price: 16.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-23",
+        name: "Grilled Vegetable Platter",
+        description: "Seasonal vegetables grilled with olive oil and herbs",
+        price: 13.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-24",
+        name: "Beef Tenderloin",
+        description: "8oz grilled tenderloin steak with roasted potatoes",
+        price: 28.99,
+        category: "main",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-25",
+        name: "Gelato Trio",
+        description: "Three scoops of artisan Italian gelato (Chocolate, Pistachio, Strawberry)",
+        price: 8.50,
+        category: "dessert",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-26",
+        name: "Cannoli Siciliani",
+        description: "Crispy pastry shells filled with sweet ricotta cream and chocolate chips",
+        price: 7.50,
+        category: "dessert",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-27",
+        name: "Chocolate Lava Cake",
+        description: "Warm chocolate cake with a molten center, served with vanilla ice cream",
+        price: 9.99,
+        category: "dessert",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-28",
+        name: "Affogato",
+        description: "Vanilla gelato drowned in hot espresso",
+        price: 6.50,
+        category: "dessert",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-29",
+        name: "House Red Wine",
+        description: "Glass of Cabernet Sauvignon",
+        price: 8.00,
+        category: "beverages",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-30",
+        name: "Cappuccino",
+        description: "Espresso with steamed milk foam",
+        price: 4.50,
+        category: "beverages",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-31",
+        name: "Iced Peach Tea",
+        description: "Freshly brewed iced tea with peach nectar",
+        price: 3.99,
+        category: "beverages",
+        restaurantId: "rest-1",
+        available: true,
+    },
+    {
+        id: "item-32",
+        name: "Fresh Lemonade",
+        description: "Squeezed fresh daily with a hint of mint",
+        price: 4.50,
+        category: "beverages",
+        restaurantId: "rest-1",
+        available: true,
     }
   ]
 

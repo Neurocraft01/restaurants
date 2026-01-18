@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     const isCustomer = req.nextUrl.searchParams.get("customer")
 
     // Get orders (simplified - would filter by user in production)
-    const orders = Array.from(((await dbOperations) as any).orders?.values?.() || [])
+    const orders = await dbOperations.getOrders("rest-1")
 
     // Calculate stats
     const stats = {

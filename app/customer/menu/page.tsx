@@ -3,11 +3,16 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { LogOut, ShoppingCart, Home } from "lucide-react"
+import { Card } from "@/components/ui/card"
+import { 
+  Search, 
+  User, 
+  MapPin, 
+  ShoppingBasket, 
+  Plus, 
+  Utensils 
+} from "lucide-react"
 
 interface MenuItem {
   id: string
@@ -20,6 +25,20 @@ interface MenuItem {
 
 interface CartItem extends MenuItem {
   quantity: number
+}
+
+// Helper to get image based on item name/category for demo purposes
+const getItemImage = (item: MenuItem) => {
+    const name = item.name.toLowerCase();
+    if (name.includes('pizza')) return "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80";
+    if (name.includes('burger')) return "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80";
+    if (name.includes('salad')) return "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80";
+    if (name.includes('pasta') || name.includes('carbonara') || name.includes('spaghetti')) return "https://images.unsplash.com/photo-1612874742237-982e9658cd6e?w=800&q=80";
+    if (name.includes('dessert') || name.includes('cake') || name.includes('tiramisu')) return "https://images.unsplash.com/photo-1629806451634-1c64bc257f8a?w=800&q=80";
+    if (name.includes('cocktail') || name.includes('mojito') || name.includes('wine')) return "https://images.unsplash.com/photo-1514362545857-3bc165497db5?w=800&q=80";
+    if (name.includes('coffee') || name.includes('espresso')) return "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80";
+    if (name.includes('steak') || name.includes('beef')) return "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80";
+    return "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80"; // Default food image
 }
 
 export default function CustomerMenuPage() {
@@ -77,161 +96,146 @@ export default function CustomerMenuPage() {
     }
   }
 
-  const removeFromCart = (itemId: string) => {
-    setCart(cart.filter((item) => item.id !== itemId))
-  }
-
   const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   const handleCheckout = () => {
     if (cart.length > 0) {
-      router.push("/customer/checkout")
+      router.push("/customer/params") // Assuming checkout flow or params check
+      // Actually let's just push to checkout or receipt. 
+      // Existing code went to /customer/checkout, so let's stick to that if it exists, or create it.
+      router.push("/customer/checkout") 
     }
   }
 
-  const handleLogout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" })
-    router.push("/")
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading menu...</p>
-        </div>
+  if (loading) return (
+      <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
-    )
-  }
+  )
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-card border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-lg">R</span>
+    <div className="relative flex flex-col min-h-screen bg-muted/30 dark:bg-[#102216] font-sans pb-32">
+      {/* Top Navigation Bar */}
+      <header className="sticky top-0 z-50 flex items-center justify-between border-b border-border bg-background/80 backdrop-blur-md px-6 md:px-10 py-4 lg:px-40">
+        <div className="flex items-center gap-4">
+            <div className="w-8 h-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+                <Utensils className="w-5 h-5" />
             </div>
-            <h1 className="text-2xl font-serif font-bold text-foreground">RestoHub</h1>
-          </div>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" onClick={() => router.push("/customer/orders")}>
-              <Home className="w-4 h-4 mr-2" />
-              My Orders
+            <h2 className="text-xl font-extrabold leading-tight tracking-tight text-foreground">VISTA BISTRO</h2>
+        </div>
+        
+        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+            <MapPin className="w-4 h-4 text-primary" />
+            <p className="text-sm font-semibold text-foreground">Table 12</p>
+        </div>
+
+        <div className="flex items-center gap-4">
+            <div className="hidden md:flex flex-col min-w-40 h-10 max-w-64 relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    <Search className="w-4 h-4" />
+                </div>
+                <Input 
+                    className="pl-10 h-full rounded-full bg-muted border-0 focus-visible:ring-1" 
+                    placeholder="Search menu..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
+            <Button variant="secondary" size="icon" className="rounded-full w-10 h-10">
+                <User className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="sm" onClick={handleLogout}>
-              <LogOut className="w-4 h-4 mr-2" />
-              Logout
-            </Button>
-          </div>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Menu Section */}
-          <div className="lg:col-span-3">
-            <div className="mb-8">
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Our Menu</h2>
-              <Input
-                placeholder="Search dishes..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-muted/50 border-border"
-              />
+      <main className="flex-1 flex flex-col items-center w-full">
+        <div className="flex flex-col w-full max-w-[1200px] flex-1">
+            {/* Headline Section */}
+            <div className="px-6 md:px-10 lg:px-20 pt-10 pb-4">
+                <h1 className="text-foreground tracking-tight text-4xl font-extrabold leading-tight">Welcome to Vista.</h1>
+                <p className="text-muted-foreground text-lg font-medium mt-1">Hand-crafted flavors, delivered to your table.</p>
             </div>
 
-            {/* Category Tabs */}
-            <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-8">
-              <TabsList className="bg-muted">
-                {categories.map((category) => (
-                  <TabsTrigger key={category} value={category} className="capitalize">
-                    {category}
-                  </TabsTrigger>
+            {/* Category Chips */}
+            <div className="px-6 md:px-10 lg:px-20 py-4 flex gap-3 overflow-x-auto no-scrollbar scroll-smooth">
+                {categories.map(category => (
+                    <button 
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-6 cursor-pointer transition-colors text-sm font-bold ${
+                            selectedCategory === category 
+                            ? 'bg-primary text-black' 
+                            : 'bg-muted text-foreground hover:bg-muted/80'
+                        }`}
+                    >
+                        <span className="capitalize">{category}</span>
+                    </button>
                 ))}
-              </TabsList>
-            </Tabs>
-
-            {/* Menu Items Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {filteredItems.map((item) => (
-                <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow border-border">
-                  <div className="bg-gradient-to-br from-muted to-muted/50 h-48 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl">🍽️</div>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-serif font-bold text-lg text-foreground">{item.name}</h3>
-                      <Badge className="bg-primary/10 text-primary border-0">₹{item.price}</Badge>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
-                    <Button
-                      onClick={() => addToCart(item)}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                    >
-                      Add to Cart
-                    </Button>
-                  </div>
-                </Card>
-              ))}
             </div>
-          </div>
 
-          {/* Cart Sidebar */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-24 border-border p-6">
-              <h3 className="font-serif font-bold text-lg mb-4 flex items-center gap-2">
-                <ShoppingCart className="w-5 h-5 text-primary" />
-                Order Summary
-              </h3>
-
-              {cart.length === 0 ? (
-                <p className="text-muted-foreground text-sm text-center py-8">Your cart is empty</p>
-              ) : (
-                <>
-                  <div className="space-y-3 mb-4 max-h-64 overflow-y-auto">
-                    {cart.map((item) => (
-                      <div key={item.id} className="flex justify-between items-start pb-3 border-b border-border">
-                        <div className="flex-1">
-                          <p className="font-medium text-sm text-foreground">{item.name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            ₹{item.price} × {item.quantity}
-                          </p>
+            {/* Menu Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-10 lg:px-20">
+                {filteredItems.map(item => (
+                    <div key={item.id} className="flex flex-col gap-4 bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+                        <div className="w-full bg-muted aspect-[4/3] relative overflow-hidden">
+                            <img 
+                                src={getItemImage(item)} 
+                                alt={item.name} 
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            {/* Optional Badge based on logic */}
+                            {item.price > 20 && (
+                                <div className="absolute top-4 right-4 bg-background/90 px-3 py-1 rounded-full text-xs font-bold text-primary backdrop-blur-sm">
+                                    PREMIUM
+                                </div>
+                            )}
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeFromCart(item.id)}
-                          className="text-destructive hover:bg-destructive/10 h-auto p-0"
-                        >
-                          ×
-                        </Button>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="border-t border-border pt-4 space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-foreground">Total</span>
-                      <span className="font-serif font-bold text-lg text-primary">₹{cartTotal.toFixed(2)}</span>
+                        <div className="p-5 flex flex-col flex-1">
+                            <div className="flex justify-between items-start mb-2">
+                                <h3 className="text-foreground text-lg font-bold leading-tight group-hover:text-primary transition-colors">{item.name}</h3>
+                                <span className="text-primary text-lg font-extrabold">₹{item.price}</span>
+                            </div>
+                            <p className="text-muted-foreground text-sm font-normal leading-relaxed mb-6 line-clamp-2">
+                                {item.description}
+                            </p>
+                            <div className="mt-auto">
+                                <Button 
+                                    onClick={() => addToCart(item)}
+                                    className="w-full rounded-full font-bold h-12 gap-2 shadow-sm"
+                                >
+                                    <Plus className="w-4 h-4" />
+                                    Add to Order
+                                </Button>
+                            </div>
+                        </div>
                     </div>
-                    <Button
-                      onClick={handleCheckout}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                    >
-                      Proceed to Checkout
-                    </Button>
-                  </div>
-                </>
-              )}
-            </Card>
-          </div>
+                ))}
+            </div>
         </div>
-      </div>
+      </main>
+
+      {/* Floating View Cart Button */}
+      {cart.length > 0 && (
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[480px] px-6">
+            <button 
+                onClick={handleCheckout}
+                className="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 bg-primary text-black text-lg font-extrabold leading-normal tracking-tight gap-4 px-8 border-4 border-background shadow-2xl transition-transform hover:scale-105 active:scale-95"
+            >
+                <div className="relative">
+                    <ShoppingBasket className="w-6 h-6" />
+                    <div className="absolute -top-2 -right-2 size-5 bg-black text-white text-[10px] rounded-full flex items-center justify-center border-2 border-primary font-bold">
+                        {cartItemCount}
+                    </div>
+                </div>
+                <span className="truncate">Review Order (₹{cartTotal.toFixed(2)})</span>
+            </button>
+          </div>
+      )}
+
+      {/* Footer */}
+      <footer className="pb-10 px-10 text-center">
+        <p className="text-xs text-muted-foreground">Allergy information available upon request. Prices include VAT.</p>
+      </footer>
     </div>
   )
 }
