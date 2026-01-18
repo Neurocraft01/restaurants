@@ -114,7 +114,6 @@ function OrderList({ value, orders, getStatusColor }: { value: string, orders: a
                                         {order.status.toUpperCase()}
                                     </span>
                                 </div>
-                            </div>
                             <div className="text-right">
                                 <p className="font-semibold text-foreground">₹{order.totalAmount?.toLocaleString()}</p>
                                 <p className="text-xs text-muted-foreground">

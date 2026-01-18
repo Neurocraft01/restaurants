@@ -25,6 +25,7 @@ export default function CheckoutPage() {
     tableId: "",
     specialNotes: "",
   })
+  const [isTableScanned, setIsTableScanned] = useState(false)
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart")
@@ -36,6 +37,7 @@ export default function CheckoutPage() {
     const scannedTable = localStorage.getItem("tableId")
     if (scannedTable) {
         setFormData(prev => ({ ...prev, tableId: scannedTable }))
+        setIsTableScanned(true)
     }
   }, [])
 
@@ -143,7 +145,7 @@ export default function CheckoutPage() {
                   value={formData.tableId}
                   onChange={handleChange}
                   className="bg-muted/50 border-border"
-                  readOnly={!!localStorage.getItem("tableId")} // Read-only if scanned
+                  readOnly={isTableScanned} // Read-only if scanned
                 />
                 {formData.tableId && <p className="text-xs text-muted-foreground">Ordering for Table {formData.tableId}</p>}
               </div>
