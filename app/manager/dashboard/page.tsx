@@ -11,6 +11,7 @@ import { LogOut, ChefHat, TrendingUp } from "lucide-react"
 interface Order {
   id: string
   customerName: string
+  tableId?: string
   totalAmount: number
   status: string
   createdAt: string
@@ -253,6 +254,11 @@ function OrderCard({
         <div>
           <h3 className="font-serif font-bold text-foreground">Order {order.id.slice(0, 8)}</h3>
           <p className="text-sm text-muted-foreground">{order.customerName}</p>
+          {order.tableId && (
+            <Badge variant="outline" className="mt-1 bg-background text-foreground border-foreground/20">
+                Table {order.tableId}
+            </Badge>
+          )}
         </div>
         <Badge className={`${statusColors[order.status] || statusColors.pending} border`}>
           {order.status.toUpperCase()}

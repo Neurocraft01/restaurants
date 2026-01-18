@@ -98,6 +98,7 @@ function seedData() {
     {
       id: "ord-1",
       customerName: "Alice Smith",
+      tableId: "5",
       restaurantId: "rest-1",
       items: [
         { menuItemId: "item-1", menuItemName: "Margherita Pizza", quantity: 2, price: 12.99 },
@@ -111,6 +112,7 @@ function seedData() {
     {
       id: "ord-2",
       customerName: "Bob Jones",
+      tableId: "12",
       restaurantId: "rest-1",
       items: [
         { menuItemId: "item-4", menuItemName: "Pasta Carbonara", quantity: 1, price: 14.99 },
@@ -124,6 +126,7 @@ function seedData() {
     {
       id: "ord-3",
       customerName: "Charlie Brown",
+      tableId: "8",
       restaurantId: "rest-1",
       items: [
         { menuItemId: "item-1", menuItemName: "Margherita Pizza", quantity: 1, price: 12.99 }
@@ -136,6 +139,7 @@ function seedData() {
     {
       id: "ord-4",
       customerName: "David Lee",
+      tableId: "3",
       restaurantId: "rest-1",
       items: [
         { menuItemId: "item-3", menuItemName: "Tiramisu", quantity: 2, price: 6.99 }

@@ -39,6 +39,13 @@ export default function PublicMenuPage() {
     }
   }, [])
 
+  // Check if Table ID is set (QR Scan Mode)
+  const [tableId, setTableId] = useState<string | null>(null)
+  useEffect(() => {
+      const tid = localStorage.getItem("tableId")
+      setTableId(tid)
+  }, [])
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
   }, [cart])
@@ -115,7 +122,10 @@ export default function PublicMenuPage() {
                 <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-serif font-bold text-lg">R</span>
                 </div>
-                <h1 className="text-2xl font-serif font-bold text-foreground hidden sm:block">The Tasty Spoon</h1>
+                <div>
+                    <h1 className="text-xl font-serif font-bold text-foreground">The Tasty Spoon</h1>
+                    {tableId && <span className="text-xs text-primary font-medium px-2 py-0.5 bg-primary/10 rounded-full">Table {tableId}</span>}
+                </div>
              </div>
           </div>
           

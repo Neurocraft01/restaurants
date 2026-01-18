@@ -12,6 +12,7 @@ interface Order {
   customerName: string
   customerEmail: string
   customerPhone: string
+  tableId?: string
   totalAmount: number
   status: string
   items: any[]
@@ -120,7 +121,13 @@ export default function ReceiptPage() {
           <div className="grid grid-cols-2 gap-8 mb-8 print:gap-6">
             <div>
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Order Number</p>
-              <p className="text-lg font-serif font-bold text-foreground">{order.id}</p>
+              <p className="text-lg font-serif font-bold text-foreground">{order.id.slice(0, 8)}</p>
+              {order.tableId && (
+                <div className="mt-2">
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Table</p>
+                    <p className="text-lg font-bold text-primary">#{order.tableId}</p>
+                </div>
+              )}
             </div>
             <div>
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Order Status</p>

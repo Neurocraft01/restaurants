@@ -101,9 +101,15 @@ function OrderList({ value, orders, getStatusColor }: { value: string, orders: a
                         <div className="flex items-center justify-between flex-wrap gap-4">
                             <div className="flex items-center gap-4">
                                 <ShoppingBag className="w-6 h-6 text-primary" />
-                                <div>
+                                <div className="flex items-center gap-2">
                                     <p className="font-semibold text-foreground">Order {order.id.slice(0,8)}</p>
-                                    <p className="text-sm text-muted-foreground">{order.customerName}</p>
+                                    {order.tableId && (
+                                        <span className="text-xs bg-muted px-1.5 py-0.5 rounded border border-border font-medium">
+                                            T-{order.tableId}
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="text-sm text-muted-foreground">{order.customerName}</p>
                                     <span className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(order.status)}`}>
                                         {order.status.toUpperCase()}
                                     </span>
