@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Super Admin Overview - Restaurant OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b12] dark:text-white transition-colors duration-300">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 border-r border-[#e7f3eb] dark:border-[#1e3a28] flex flex-col justify-between p-6 bg-white dark:bg-background-dark">
+<div class="flex flex-col gap-8">
+<!-- Branding -->
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">restaurant</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-lg font-bold leading-none">Admin Panel</h1>
+<p class="text-[#4c9a66] text-xs font-medium">Global Controller</p>
+</div>
+</div>
+<!-- Nav Links -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary/20 text-[#0d1b12] dark:text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-sm font-medium">Restaurants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Billing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary text-[#0d1b12] font-bold py-3 rounded-full text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                    Add New Restaurant
+                </button>
+<div class="flex items-center gap-3 p-2 border border-[#e7f3eb] dark:border-[#1e3a28] rounded-xl">
+<div class="size-10 rounded-full bg-gray-200" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXgbrwMcj2CvxwQBj65YVkpmp5vNbibUg8WHLXsy6_z7sszx7ZNK2VLFU068Qm7XPp8G5Iv-GOwoFZ3NdxJHyknWQzNUkPsDvnu2sAmGeCXV-QS987bXbKfvl6i807bIEL5esx_Py9TaCRzon05rxL10KnQlTfGxKT72_4bO5qMRmnJ3lDGXWLB88X7GugxjO2y31nSKYc5gLvNmjAmDGzCvxbzSCyL0zFcGfqRuByehGwsR1_g1rIts951jtDEKYU7J4XBBRcyzo'); background-size: cover;"></div>
+<div class="flex flex-col">
+<p class="text-xs font-bold">Alex Thompson</p>
+<p class="text-[10px] text-[#4c9a66]">Super Administrator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto scrollbar-hide">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7f3eb] dark:border-[#1e3a28] px-8 py-4 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<h2 class="text-xl font-bold tracking-tight">Super Admin Overview</h2>
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c9a66] text-xl">search</span>
+<input class="w-full bg-[#e7f3eb] dark:bg-white/5 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/50" placeholder="Search venues, orders, reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-[#0d1b12] font-bold px-6 py-2 rounded-full text-sm shadow-sm hover:opacity-90 transition-opacity">
+                        Export Global Report
+                    </button>
+<div class="flex gap-2">
+<button class="size-10 flex items-center justify-center rounded-full bg-white dark:bg-white/5 border border-[#e7f3eb] dark:border-[#1e3a28] hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-full bg-white dark:bg-white/5 border border-[#e7f3eb] dark:border-[#1e3a28] hover:bg-gray-50 transition-colors relative">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2.5 size-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 flex flex-col gap-8">
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-[#cfe7d7] dark:border-[#1e3a28] flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium text-[#4c9a66]">Total Revenue</p>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<p class="text-3xl font-bold tracking-tight">$245,890</p>
+<div class="mt-2 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-[#cfe7d7] dark:border-[#1e3a28] flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium text-[#4c9a66]">Active Restaurants</p>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+5.2%</span>
+</div>
+<p class="text-3xl font-bold tracking-tight">142</p>
+<p class="text-xs text-gray-500 mt-2">8 new this month</p>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-[#cfe7d7] dark:border-[#1e3a28] flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium text-[#4c9a66]">Avg. Order Value</p>
+<span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded-full">-1.2%</span>
+</div>
+<p class="text-3xl font-bold tracking-tight">$32.50</p>
+<p class="text-xs text-gray-500 mt-2">Target: $35.00</p>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-2xl border border-[#cfe7d7] dark:border-[#1e3a28] flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-sm font-medium text-[#4c9a66]">Active QR Sessions</p>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+18%</span>
+</div>
+<p class="text-3xl font-bold tracking-tight">1,842</p>
+<p class="text-xs text-gray-500 mt-2">Live real-time scans</p>
+</div>
+</div>
+<!-- Main Layout: Map & Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left: Regional Map -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold">Regional Activity</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-white border border-[#e7f3eb] dark:bg-white/5 dark:border-[#1e3a28]">Global</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary border border-primary/20">Europe</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-white border border-[#e7f3eb] dark:bg-white/5 dark:border-[#1e3a28]">North America</button>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] bg-[#e7f3eb] dark:bg-white/5 rounded-3xl overflow-hidden border border-[#cfe7d7] dark:border-[#1e3a28]">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply dark:mix-blend-overlay" data-alt="Modern stylized map with glowing location pins" data-location="Western Europe map view with restaurant markers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAN2xzxgYCF9W8Z7BwdZVML2jztiMt7UhE_x6xx2vcpEB-gfN-PyvhZNdFHGMZfYU-eRktI_gcW86z16mT5VUjJ3zEu-0738w9IEfw_fC3tab0ALGc6BGqsSv4z8ndB_rakq6DoAIkoXx4HDLk__-MMs_xUJS4rBDL0XisDqHMC2uZs01V9tpjtRU9vh8tI5kMqdNM9WLKp3Nen9fbxOf_gdqX11VrrnwldV_tmZFKFJeyC6jwuTLaS36Dlfnz40cBnkw4sNoCjdoE');">
+</div>
+<!-- Mock Markers -->
+<div class="absolute top-1/4 left-1/3 group">
+<div class="size-4 bg-primary rounded-full animate-ping absolute inset-0 opacity-75"></div>
+<div class="size-4 bg-primary rounded-full relative shadow-lg shadow-primary/50 cursor-pointer"></div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white dark:bg-background-dark p-2 rounded-lg shadow-xl border border-gray-100 dark:border-white/10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20">
+<p class="text-xs font-bold">Le Petit Bistro</p>
+<p class="text-[10px] text-primary">$12,400 Rev</p>
+</div>
+</div>
+<div class="absolute top-1/2 left-2/3 group">
+<div class="size-4 bg-primary rounded-full relative shadow-lg shadow-primary/50 cursor-pointer"></div>
+</div>
+</div>
+</div>
+<!-- Right: Performance List -->
+<div class="flex flex-col gap-4">
+<h3 class="text-xl font-bold">Top Performing Venues</h3>
+<div class="flex flex-col gap-3 bg-white dark:bg-white/5 p-4 rounded-3xl border border-[#cfe7d7] dark:border-[#1e3a28]">
+<!-- Row 1 -->
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-xl bg-gray-100 flex items-center justify-center text-xl font-bold text-primary">1</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold">Skyline Rooftop</p>
+<p class="text-xs text-gray-500">London, UK</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$42,800</p>
+<p class="text-[10px] text-primary">982 orders</p>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-xl bg-gray-100 flex items-center justify-center text-xl font-bold text-primary">2</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold">Urban Grill</p>
+<p class="text-xs text-gray-500">Berlin, DE</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$38,200</p>
+<p class="text-[10px] text-primary">845 orders</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-xl bg-gray-100 flex items-center justify-center text-xl font-bold text-primary">3</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold">Pasta Garden</p>
+<p class="text-xs text-gray-500">Rome, IT</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">$31,500</p>
+<p class="text-[10px] text-primary">720 orders</p>
+</div>
+</div>
+<button class="w-full mt-2 text-sm font-bold text-[#4c9a66] hover:text-primary transition-colors py-2">View All Venues</button>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Detailed Reports Table -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold">Recent System Activity</h3>
+<div class="flex items-center gap-4">
+<select class="bg-transparent border-none text-sm font-semibold focus:ring-0">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+<button class="text-sm font-bold text-primary">See full log</button>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 rounded-3xl border border-[#cfe7d7] dark:border-[#1e3a28] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#e7f3eb] dark:border-[#1e3a28] bg-gray-50/50 dark:bg-white/5">
+<th class="px-6 py-4 text-xs font-bold text-[#4c9a66] uppercase tracking-wider">Restaurant</th>
+<th class="px-6 py-4 text-xs font-bold text-[#4c9a66] uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-[#4c9a66] uppercase tracking-wider">Live Scans</th>
+<th class="px-6 py-4 text-xs font-bold text-[#4c9a66] uppercase tracking-wider">Revenue MTD</th>
+<th class="px-6 py-4 text-xs font-bold text-[#4c9a66] uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e7f3eb] dark:divide-[#1e3a28]">
+<tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">restaurant_menu</span>
+</div>
+<span class="text-sm font-bold">The Green Bowl</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full">Active</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-1.5 bg-primary rounded-full animate-pulse"></div>
+<span class="text-sm font-medium">42 Scans</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-bold">$12,450.00</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-gray-400 hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-orange-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-orange-500">local_fire_department</span>
+</div>
+<span class="text-sm font-bold">Fire &amp; Ice Grill</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full">Active</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-1.5 bg-primary rounded-full animate-pulse"></div>
+<span class="text-sm font-medium">18 Scans</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-bold">$8,920.50</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-gray-400 hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-gray-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-gray-500">coffee</span>
+</div>
+<span class="text-sm font-bold">Morning Dew Coffee</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-gray-100 text-gray-500 text-[10px] font-bold rounded-full">Inactive</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-medium text-gray-400">0 Scans</span>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-gray-400">$3,120.00</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-gray-400 hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unified Login Portal - Restaurant Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(16, 34, 22, 0.7);
+            border: 1px solid rgba(43, 238, 108, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+<!-- Main Container -->
+<div class="w-full max-w-[1024px] grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-zinc-900 rounded-xl shadow-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
+<!-- Left Side: Visual/Branding -->
+<div class="relative hidden md:flex flex-col justify-between p-12 bg-zinc-950 text-white">
+<div class="absolute inset-0 opacity-40">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="abstract geometric pattern with green glowing accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7GmUamyXqfKOOWVgZ8Ya3arG1FSyhBQu5hMUNDUmZ_YpZqo6UplUjTTss-y5mQI1C8WI1W2f1bIXfowhzzC_b-QNo-HqjmZF44dHIrmCrWZ7OVFQQXxdJXZLt77x6L9FhwEL_3G5tZffcyWmblnfYZ_JHmvicnU2Uhu5N4sWCfqZ24PWKolgQ2Pfw9q5ds-zMcyiPs_Jz_DXwEcIAqdNabIUt94FDVJqruRcVtHirB3YvXfiudPyM1pcp73ARWuUTHbU8jS-nqmI");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-br from-background-dark/80 to-primary/20"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-8">
+<div class="bg-primary p-2 rounded-lg">
+<span class="material-symbols-outlined text-background-dark font-bold">restaurant</span>
+</div>
+<span class="text-xl font-black tracking-tight">O-SYSTEM</span>
+</div>
+<h2 class="text-4xl font-bold leading-tight">Unified Management <br/>&amp; Ordering Portal</h2>
+<p class="mt-4 text-zinc-400 max-w-xs">Securely access your restaurant dashboard, manage QR menus, and track live orders from one central hub.</p>
+</div>
+<div class="relative z-10 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-sm text-zinc-300">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span>End-to-End Encrypted Access</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-zinc-300">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+<span>Real-time Analytics Dashboard</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="flex flex-col p-8 md:p-12 justify-center bg-background-light dark:bg-background-dark">
+<!-- Page Heading Component -->
+<div class="flex flex-col gap-2 mb-8">
+<p class="text-zinc-900 dark:text-white text-3xl font-black leading-tight tracking-tight">Welcome Back</p>
+<p class="text-zinc-500 dark:text-zinc-400 text-base font-normal">Please enter your details to continue.</p>
+</div>
+<!-- Segmented Buttons Component -->
+<div class="flex mb-8">
+<div class="flex h-12 flex-1 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-4 has-[:checked]:bg-white dark:has-[:checked]:bg-zinc-700 has-[:checked]:shadow-sm has-[:checked]:text-zinc-900 dark:has-[:checked]:text-white text-zinc-500 dark:text-zinc-400 text-sm font-semibold transition-all">
+<span class="truncate">Restaurant Admin</span>
+<input checked="" class="invisible w-0" name="admin_type" type="radio" value="Restaurant Admin"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-4 has-[:checked]:bg-white dark:has-[:checked]:bg-zinc-700 has-[:checked]:shadow-sm has-[:checked]:text-zinc-900 dark:has-[:checked]:text-white text-zinc-500 dark:text-zinc-400 text-sm font-semibold transition-all">
+<span class="truncate">Super Admin</span>
+<input class="invisible w-0" name="admin_type" type="radio" value="Super Admin"/>
+</label>
+</div>
+</div>
+<!-- TextField Components -->
+<form class="flex flex-col gap-5">
+<div class="flex flex-col gap-1.5">
+<label class="text-zinc-700 dark:text-zinc-300 text-sm font-bold px-1">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-[20px]">mail</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-zinc-400" placeholder="e.g. admin@restaurant.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center px-1">
+<label class="text-zinc-700 dark:text-zinc-300 text-sm font-bold">Password</label>
+<a class="text-xs text-primary font-bold hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-[20px]">lock</span>
+<input class="w-full pl-12 pr-12 py-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-zinc-400" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2 px-1 mt-2">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900" id="remember" type="checkbox"/>
+<label class="text-sm text-zinc-600 dark:text-zinc-400" for="remember">Keep me logged in for 30 days</label>
+</div>
+<!-- Action Button -->
+<button class="mt-4 w-full bg-primary text-background-dark font-black py-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2" type="submit">
+                    Login to Dashboard
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<div class="mt-8 flex flex-col items-center gap-4 text-sm">
+<p class="text-zinc-500">Need help? <a class="text-zinc-900 dark:text-white font-bold hover:underline" href="#">Contact System Support</a></p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">
+<span class="material-symbols-outlined text-sm">language</span>
+<span>English (US)</span>
+</button>
+<div class="w-1 h-1 bg-zinc-300 rounded-full"></div>
+<button class="flex items-center gap-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">
+<span class="material-symbols-outlined text-sm">dark_mode</span>
+<span>Dark Appearance</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

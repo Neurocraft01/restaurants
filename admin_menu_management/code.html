@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Menu Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2bee6c;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b12] dark:text-white min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Side Navigation -->
+<aside class="w-72 bg-white dark:bg-[#152a1c] border-r border-[#cfe7d7] dark:border-[#223a2a] flex flex-col justify-between p-6">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary size-10 rounded-xl flex items-center justify-center text-[#0d1b12]">
+<span class="material-symbols-outlined font-bold">restaurant_menu</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight">Bistro Modern</h1>
+<p class="text-[#4c9a66] text-xs font-medium">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#1c3525] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#4c9a66] group-hover:text-primary">grid_view</span>
+<span class="text-sm font-semibold">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-[#0d1b12] font-bold" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-sm">Menu Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#1c3525] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#4c9a66] group-hover:text-primary">receipt_long</span>
+<span class="text-sm font-semibold">Orders</span>
+<span class="ml-auto bg-primary/20 text-[#0d1b12] dark:text-primary text-[10px] px-2 py-0.5 rounded-full">12 New</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#1c3525] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#4c9a66] group-hover:text-primary">analytics</span>
+<span class="text-sm font-semibold">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-background-light dark:hover:bg-[#1c3525] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#4c9a66] group-hover:text-primary">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+</nav>
+<div class="mt-4">
+<p class="text-[10px] uppercase tracking-wider text-[#4c9a66] font-bold px-4 mb-2">Categories (Drag to reorder)</p>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 px-4 py-2 hover:bg-background-light dark:hover:bg-[#1c3525] rounded-lg cursor-move">
+<span class="material-symbols-outlined text-xs text-[#4c9a66]">drag_indicator</span>
+<span class="text-sm font-medium">Appetizers</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 hover:bg-background-light dark:hover:bg-[#1c3525] rounded-lg cursor-move">
+<span class="material-symbols-outlined text-xs text-[#4c9a66]">drag_indicator</span>
+<span class="text-sm font-medium">Main Course</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 hover:bg-background-light dark:hover:bg-[#1c3525] rounded-lg cursor-move">
+<span class="material-symbols-outlined text-xs text-[#4c9a66]">drag_indicator</span>
+<span class="text-sm font-medium">Desserts</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 hover:bg-background-light dark:hover:bg-[#1c3525] rounded-lg cursor-move">
+<span class="material-symbols-outlined text-xs text-[#4c9a66]">drag_indicator</span>
+<span class="text-sm font-medium">Beverages</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-[#0d1b12] font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span>Preview QR Menu</span>
+</button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Header -->
+<header class="h-20 bg-white dark:bg-[#152a1c] border-b border-[#cfe7d7] dark:border-[#223a2a] flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-6">
+<h2 class="text-xl font-extrabold text-[#0d1b12] dark:text-white">Menu Editor</h2>
+<div class="relative w-80 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#4c9a66] group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-background-light dark:bg-[#1c3525] border-none rounded-full pl-12 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-[#4c9a66]" placeholder="Search menu items..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-background-light dark:bg-[#1c3525] text-[#0d1b12] dark:text-white font-bold px-6 py-2.5 rounded-full text-sm hover:bg-[#e7f3eb] transition-colors border border-[#cfe7d7] dark:border-[#223a2a]">
+                        Add Category
+                    </button>
+<button class="bg-primary text-[#0d1b12] font-bold px-6 py-2.5 rounded-full text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                        Add New Item
+                    </button>
+<div class="w-[1px] h-8 bg-[#cfe7d7] dark:border-[#223a2a] mx-2"></div>
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-[#1c3525] relative">
+<span class="material-symbols-outlined text-[#0d1b12] dark:text-white">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-white"></span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary" data-alt="Admin User Profile Picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOzEyJKbChG4yjJXSWUAx7RQ3hKdNV4FPAeXZ0F9gv3k3mETe2MtRU6Vz9NAn2-9NHle2eA6vetqnQ5popmXjsf0dIjc2mMOK7Wz1tJZ5j9qxMOam_EpP_Nz5_snZCPMeKWtteKA8XIgua3qWlbplG4ZRTieD9r5yyfbA_YGUUPYckYWftZXbYu7U_uwIT5KetVjQcggUsDDEA-CxnIZcyqNytXZgiwoaBXnzye5GwL0N00wtxMI-4xFZU5v_3Fce1jdrE1XSkC9g')"></div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-8 bg-background-light dark:bg-background-dark">
+<!-- Breadcrumbs & Tabs -->
+<div class="mb-8 flex flex-col gap-6">
+<nav class="flex items-center gap-2 text-sm">
+<a class="text-[#4c9a66] hover:text-primary transition-colors font-medium" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-xs text-[#4c9a66]">chevron_right</span>
+<span class="text-[#0d1b12] dark:text-white font-bold">Menu Editor</span>
+</nav>
+<div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-primary text-[#0d1b12] px-6 py-2.5 rounded-full text-sm font-bold shrink-0">All Items (42)</button>
+<button class="bg-white dark:bg-[#152a1c] text-[#4c9a66] px-6 py-2.5 rounded-full text-sm font-bold border border-[#cfe7d7] dark:border-[#223a2a] shrink-0 hover:border-primary transition-colors">Appetizers (12)</button>
+<button class="bg-white dark:bg-[#152a1c] text-[#4c9a66] px-6 py-2.5 rounded-full text-sm font-bold border border-[#cfe7d7] dark:border-[#223a2a] shrink-0 hover:border-primary transition-colors">Main Course (18)</button>
+<button class="bg-white dark:bg-[#152a1c] text-[#4c9a66] px-6 py-2.5 rounded-full text-sm font-bold border border-[#cfe7d7] dark:border-[#223a2a] shrink-0 hover:border-primary transition-colors">Desserts (8)</button>
+<button class="bg-white dark:bg-[#152a1c] text-[#4c9a66] px-6 py-2.5 rounded-full text-sm font-bold border border-[#cfe7d7] dark:border-[#223a2a] shrink-0 hover:border-primary transition-colors">Beverages (4)</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-white dark:bg-[#152a1c] rounded-2xl shadow-sm border border-[#cfe7d7] dark:border-[#223a2a] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-background-light/50 dark:bg-[#1c3525]/50 border-b border-[#cfe7d7] dark:border-[#223a2a]">
+<th class="py-5 px-6 w-10"></th>
+<th class="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#4c9a66]">Item</th>
+<th class="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#4c9a66]">Description</th>
+<th class="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#4c9a66]">Price ($)</th>
+<th class="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#4c9a66]">Availability</th>
+<th class="py-5 px-6 text-xs font-bold uppercase tracking-wider text-[#4c9a66]">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#cfe7d7] dark:divide-[#223a2a]">
+<!-- Row 1 -->
+<tr class="group hover:bg-background-light/30 dark:hover:bg-[#1c3525]/20 transition-colors">
+<td class="py-4 px-6">
+<span class="material-symbols-outlined text-[#4c9a66] cursor-move opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-cover bg-center shrink-0 border border-[#cfe7d7] dark:border-[#223a2a]" data-alt="Truffle Fries with Herbs" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARxI5gL2wcHclfgrx3Xkw5uawOrCAmRxKjRvUqzKnHm5x3UOcin2cI3rCTqV-0H_HPKq8fcUebogdyQfRMeEb8AJ76brom35N3tPmwI6cVq9PFWhyJLVAwAo42MpnYZw_lp9EIAASQGUYnddLBt-xzG-bKu_vwS6ZcocybJ6MZzSBBq16247pNe0zNjC7TZ3T9H6A4om0-sd4jf0LP_WlGKJSREwnk2YHCotDxsnXMuyMd_8FzH5oJM_4bCtLizrwz-wWSxT-ETHE')"></div>
+<span class="font-bold text-sm">Truffle Parmesan Fries</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-[#4c9a66] max-w-xs truncate">
+                                    Crispy potato fries, truffle oil, parmesan, parsley
+                                </td>
+<td class="py-4 px-6">
+<div class="relative group/price w-24">
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0 group-hover/price:bg-background-light dark:group-hover/price:bg-[#1c3525] rounded px-2 py-1 transition-all" type="text" value="12.00"/>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer focus:outline-none transition-transform duration-200" id="toggle1" name="toggle1" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200" for="toggle1"></label>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-primary/10 text-[#4c9a66] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-red-50 text-[#4c9a66] hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-background-light text-[#4c9a66] hover:text-[#0d1b12] transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-background-light/30 dark:hover:bg-[#1c3525]/20 transition-colors">
+<td class="py-4 px-6">
+<span class="material-symbols-outlined text-[#4c9a66] cursor-move opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-cover bg-center shrink-0 border border-[#cfe7d7] dark:border-[#223a2a]" data-alt="Classic Wagyu Burger" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcrhOFyzUCqHB2Q-bj6byIgwX5mygq8EJkmri0lEl_QQUEzkqJ9_sssP_iQjJK_lOE_jalGGm6HIHixnpqgJR_kQXVFsP5UNHe7-O7i2iCY00blDyBQyvlblWGoMDUe1avAYHU5pMTJg6XjyOV2eEYWJDeRkF_YaJEJonuI-nYLljS9eOMLCt5CglVMz-unIlnLgP1PQG3b00Cn6rjtsLfZostvU1gMtcE1y-LVMv1eGy2xbo26JBH3hD1NYqZDUBGbeA6tSS9w5M')"></div>
+<span class="font-bold text-sm">Classic Wagyu Burger</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-[#4c9a66] max-w-xs truncate">
+                                    Wagyu beef patty, aged cheddar, brioche bun, secret sauce
+                                </td>
+<td class="py-4 px-6">
+<div class="relative group/price w-24">
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0 group-hover/price:bg-background-light dark:group-hover/price:bg-[#1c3525] rounded px-2 py-1 transition-all" type="text" value="24.50"/>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer focus:outline-none transition-transform duration-200" id="toggle2" name="toggle2" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200" for="toggle2"></label>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-primary/10 text-[#4c9a66] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-red-50 text-[#4c9a66] hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-background-light text-[#4c9a66] hover:text-[#0d1b12] transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Disabled/Sold Out) -->
+<tr class="group hover:bg-background-light/30 dark:hover:bg-[#1c3525]/20 transition-colors opacity-60 grayscale-[0.5]">
+<td class="py-4 px-6">
+<span class="material-symbols-outlined text-[#4c9a66] cursor-move opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-cover bg-center shrink-0 border border-[#cfe7d7] dark:border-[#223a2a]" data-alt="Caesar Salad Plate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCEwvvr0CNlSuFocY4Vf4fiei4nnTx0jxqN4RsvJjtFxcxv2Nr9jIrNR_CgmIp67vQAiL_K56tian-t47wJ3U2QAWgvvLFaXW7PEfsd4vjiHLNt6AeFx8ZyqGfxdb5wlFzLAAfZnvBp_bw5BZxRM7Wl8ZIhCa_Cza-m_D9hMevU9zgmnYFEQSZlF8BvF54dSTKVmtPaU5woqpXaBn90AeUM0RFGK58sur9D2zotdhNEAO1pjrasBq8Lvk2KaOBPUjpjJ5f7v78w7kI')"></div>
+<span class="font-bold text-sm">Classic Caesar Salad</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-[#4c9a66] max-w-xs truncate">
+                                    Romaine lettuce, croutons, parmesan, anchovy dressing
+                                </td>
+<td class="py-4 px-6">
+<div class="relative group/price w-24">
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0 group-hover/price:bg-background-light dark:group-hover/price:bg-[#1c3525] rounded px-2 py-1 transition-all" type="text" value="14.00"/>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer focus:outline-none transition-transform duration-200" id="toggle3" name="toggle3" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200" for="toggle3"></label>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-primary/10 text-[#4c9a66] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-red-50 text-[#4c9a66] hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-background-light text-[#4c9a66] hover:text-[#0d1b12] transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-background-light/30 dark:hover:bg-[#1c3525]/20 transition-colors">
+<td class="py-4 px-6">
+<span class="material-symbols-outlined text-[#4c9a66] cursor-move opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-xl bg-cover bg-center shrink-0 border border-[#cfe7d7] dark:border-[#223a2a]" data-alt="Miso Salmon Bowl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVqjoqT7LN88aWGUQeod3rmDLAXjlRxQEq_7Oa4mpuYLp0n9sW9NhtsX10TtPh72lbZ34g8WUYylnUPvGixhHWCrWiqHSSqbapOXHYKcsnjW5dVKTyF08ukyKz7eR3A6qlmL-WvVQSg2uZAg04P3yF8CUdTBO7IU-DVzS2q8qbKQQ0rrUDTJ5w92AzZlw8CTxdxwW5eaqcAlgZw9fMbEEC_tlQEkryW0WuG6QoWYYxGjgAyip3dx6sa0ZEV0tm9-IQZyPaEbf3vI8')"></div>
+<span class="font-bold text-sm">Wild Caught Miso Salmon</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-[#4c9a66] max-w-xs truncate">
+                                    Glazed salmon, jasmine rice, pickled ginger, sesame
+                                </td>
+<td class="py-4 px-6">
+<div class="relative group/price w-24">
+<input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0 group-hover/price:bg-background-light dark:group-hover/price:bg-[#1c3525] rounded px-2 py-1 transition-all" type="text" value="28.00"/>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer focus:outline-none transition-transform duration-200" id="toggle4" name="toggle4" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200" for="toggle4"></label>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-primary/10 text-[#4c9a66] hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-red-50 text-[#4c9a66] hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+<button class="size-8 rounded-lg flex items-center justify-center hover:bg-background-light text-[#4c9a66] hover:text-[#0d1b12] transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Stats -->
+<div class="mt-6 flex justify-between items-center text-sm font-medium text-[#4c9a66]">
+<div class="flex gap-4">
+<span>Total Items: <b class="text-[#0d1b12] dark:text-white">42</b></span>
+<span class="w-px h-4 bg-[#cfe7d7] self-center"></span>
+<span>Active: <b class="text-primary">38</b></span>
+<span class="w-px h-4 bg-[#cfe7d7] self-center"></span>
+<span>Sold Out: <b class="text-red-400">4</b></span>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-[#cfe7d7] dark:border-[#223a2a] bg-white dark:bg-[#152a1c] hover:bg-background-light disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 rounded bg-primary text-[#0d1b12]">1</button>
+<button class="px-3 py-1 rounded border border-[#cfe7d7] dark:border-[#223a2a] bg-white dark:bg-[#152a1c] hover:bg-background-light">2</button>
+<button class="px-3 py-1 rounded border border-[#cfe7d7] dark:border-[#223a2a] bg-white dark:bg-[#152a1c] hover:bg-background-light">Next</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

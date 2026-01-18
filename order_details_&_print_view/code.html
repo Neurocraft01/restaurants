@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Details &amp; Print View - Kitchen Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; }
+            .receipt-preview { 
+                border: none !important; 
+                box-shadow: none !important; 
+                width: 80mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+        .receipt-preview {
+            width: 320px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1b12] dark:text-white antialiased">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-72 border-r border-[#cfe7d7] dark:border-[#1e3a24] bg-white dark:bg-[#0d1b12] flex flex-col justify-between p-6 fixed h-full no-print">
+<div class="flex flex-col gap-8">
+<div class="flex gap-3 items-center px-2">
+<div class="bg-primary size-10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[#0d1b12]">restaurant</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#0d1b12] dark:text-white text-base font-bold leading-tight">Kitchen Admin</h1>
+<p class="text-[#4c9a66] text-xs font-medium">Restaurant Pro</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-background-light dark:hover:bg-[#1a2e1f]" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<p class="text-sm font-semibold">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/20 text-[#0d1b12] dark:text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">receipt_long</span>
+<p class="text-sm font-bold">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-background-light dark:hover:bg-[#1a2e1f]" href="#">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+<p class="text-sm font-semibold">Menu</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors hover:bg-background-light dark:hover:bg-[#1a2e1f]" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<p class="text-sm font-semibold">Settings</p>
+</a>
+</nav>
+</div>
+<button class="bg-primary text-[#0d1b12] font-bold py-3 px-4 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">search</span>
+<span>Quick Search</span>
+</button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-72 p-8">
+<div class="max-w-6xl mx-auto space-y-6">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 no-print">
+<a class="text-[#4c9a66] text-sm font-medium hover:underline" href="#">Orders</a>
+<span class="material-symbols-outlined text-[#4c9a66] text-xs">chevron_right</span>
+<span class="text-[#0d1b12] dark:text-white text-sm font-semibold">Order #8294</span>
+</nav>
+<!-- PageHeading -->
+<header class="flex flex-wrap justify-between items-end gap-4 border-b border-[#cfe7d7] dark:border-[#1e3a24] pb-6 no-print">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h2 class="text-[#0d1b12] dark:text-white text-4xl font-black tracking-tight">Order #8294</h2>
+<span class="bg-primary/20 text-[#078829] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">In Progress</span>
+</div>
+<p class="text-[#4c9a66] text-lg">Table 12 • Received 2 mins ago • <span class="text-primary font-bold italic">Live Order</span></p>
+</div>
+<div class="flex gap-3">
+<button class="bg-[#e7f3eb] dark:bg-[#1a2e1f] text-[#0d1b12] dark:text-white font-bold py-2.5 px-6 rounded-full text-sm">Cancel Order</button>
+<button class="bg-primary text-[#0d1b12] font-bold py-2.5 px-8 rounded-full text-sm shadow-md">Mark as Ready</button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Details -->
+<div class="lg:col-span-2 space-y-8 no-print">
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-white dark:bg-[#0d1b12] border border-[#cfe7d7] dark:border-[#1e3a24] p-6 rounded-xl">
+<p class="text-[#4c9a66] text-xs font-bold uppercase mb-1">Total Amount</p>
+<p class="text-2xl font-black">$42.50</p>
+<div class="flex items-center gap-1 text-[#078829] mt-2">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span class="text-xs font-medium">Payment Verified</span>
+</div>
+</div>
+<div class="bg-white dark:bg-[#0d1b12] border border-[#cfe7d7] dark:border-[#1e3a24] p-6 rounded-xl">
+<p class="text-[#4c9a66] text-xs font-bold uppercase mb-1">Items</p>
+<p class="text-2xl font-black">5 Items</p>
+<p class="text-[#4c9a66] text-xs font-medium mt-2">2 Large, 3 Sides</p>
+</div>
+<div class="bg-white dark:bg-[#0d1b12] border border-[#cfe7d7] dark:border-[#1e3a24] p-6 rounded-xl">
+<p class="text-[#4c9a66] text-xs font-bold uppercase mb-1">Customer</p>
+<p class="text-2xl font-black truncate">Alex Chen</p>
+<p class="text-[#4c9a66] text-xs font-medium mt-2">+1 (555) 0123</p>
+</div>
+</div>
+<!-- Order Breakdown -->
+<div class="bg-white dark:bg-[#0d1b12] rounded-xl border border-[#cfe7d7] dark:border-[#1e3a24] overflow-hidden">
+<div class="p-5 border-b border-[#cfe7d7] dark:border-[#1e3a24] flex justify-between items-center">
+<h3 class="font-bold text-lg">Order Breakdown</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit Items
+                                </button>
+</div>
+<div class="divide-y divide-[#cfe7d7] dark:divide-[#1e3a24]">
+<!-- Item 1 -->
+<div class="p-5 flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-background-light dark:bg-[#1a2e1f] rounded-lg flex items-center justify-center font-bold">1x</div>
+<div>
+<p class="font-bold text-lg">Truffle Umami Burger</p>
+<ul class="text-sm text-[#4c9a66] mt-1 space-y-0.5">
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-[#078829]">add_circle</span> Extra Truffle Mayo</li>
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-red-500">do_not_disturb_on</span> No Onions</li>
+</ul>
+</div>
+</div>
+<p class="font-bold text-lg">$18.50</p>
+</div>
+<!-- Item 2 -->
+<div class="p-5 flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-background-light dark:bg-[#1a2e1f] rounded-lg flex items-center justify-center font-bold">2x</div>
+<div>
+<p class="font-bold text-lg">Parmesan Truffle Fries</p>
+<p class="text-sm text-[#4c9a66] mt-1 italic">Large Portion</p>
+</div>
+</div>
+<p class="font-bold text-lg">$14.00</p>
+</div>
+<!-- Item 3 -->
+<div class="p-5 flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-background-light dark:bg-[#1a2e1f] rounded-lg flex items-center justify-center font-bold">2x</div>
+<div>
+<p class="font-bold text-lg">Classic Lemonade</p>
+<ul class="text-sm text-[#4c9a66] mt-1 space-y-0.5">
+<li class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">ice_skating</span> Less Ice</li>
+</ul>
+</div>
+</div>
+<p class="font-bold text-lg">$10.00</p>
+</div>
+</div>
+<!-- Notes -->
+<div class="bg-primary/10 p-5 m-5 rounded-xl border-l-4 border-primary">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm text-[#078829]">sticky_note_2</span>
+<span class="text-xs font-bold uppercase text-[#078829]">Special Instructions</span>
+</div>
+<p class="text-sm font-medium">Please pack the burgers and fries separately. Customer is sensitive to moisture. Thank you!</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Print Preview & Tools -->
+<div class="space-y-6">
+<!-- Thermal Print UI -->
+<div class="bg-white dark:bg-[#0d1b12] rounded-xl border border-[#cfe7d7] dark:border-[#1e3a24] p-6 sticky top-8">
+<div class="flex items-center justify-between mb-6 no-print">
+<h3 class="font-bold">Thermal Print Preview</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-background-light dark:hover:bg-[#1a2e1f] rounded-lg transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Receipt Preview -->
+<div class="receipt-preview mx-auto bg-white text-black p-6 shadow-2xl border border-gray-100 rounded-sm">
+<div class="text-center mb-4">
+<p class="font-bold text-xl">THE BURGER LAB</p>
+<p class="text-xs">123 Culinary Ave, Foodie City</p>
+<p class="text-xs">Tel: (555) 012-3456</p>
+<p class="text-xs mt-2">--------------------------------</p>
+</div>
+<div class="text-sm space-y-1">
+<p class="flex justify-between"><span>ORDER:</span> <span>#8294</span></p>
+<p class="flex justify-between"><span>TABLE:</span> <span>12</span></p>
+<p class="flex justify-between"><span>DATE:</span> <span>24/05/2024 14:32</span></p>
+<p class="text-xs">--------------------------------</p>
+</div>
+<div class="text-sm space-y-2 my-4">
+<div>
+<p class="flex justify-between font-bold"><span>1x Truffle Burger</span> <span>18.50</span></p>
+<p class="text-xs ml-4">+ EXTRA TRUFFLE MAYO</p>
+<p class="text-xs ml-4">- NO ONIONS</p>
+</div>
+<div>
+<p class="flex justify-between font-bold"><span>2x Truffle Fries</span> <span>14.00</span></p>
+<p class="text-xs ml-4">LARGE</p>
+</div>
+<div>
+<p class="flex justify-between font-bold"><span>2x Classic Lemonade</span> <span>10.00</span></p>
+<p class="text-xs ml-4">LESS ICE</p>
+</div>
+</div>
+<div class="text-sm border-t border-dashed pt-4">
+<p class="flex justify-between"><span>SUBTOTAL</span> <span>$42.50</span></p>
+<p class="flex justify-between"><span>TAX (0%)</span> <span>$0.00</span></p>
+<p class="flex justify-between font-bold text-lg mt-2"><span>TOTAL</span> <span>$42.50</span></p>
+</div>
+<div class="text-center mt-6 text-xs italic">
+<p>Scan for Digital Invoice</p>
+<div class="mt-2 w-20 h-20 bg-gray-200 mx-auto rounded flex items-center justify-center" data-alt="QR Code for digital receipt">
+<span class="material-symbols-outlined text-4xl text-gray-500">qr_code_2</span>
+</div>
+<p class="mt-4">Enjoy your meal!</p>
+</div>
+</div>
+<!-- Print Controls -->
+<div class="mt-8 space-y-4 no-print">
+<div class="flex items-center justify-between p-3 rounded-xl bg-background-light dark:bg-[#1a2e1f]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">print</span>
+<span class="text-sm font-medium">80mm Kitchen</span>
+</div>
+<span class="text-[10px] bg-[#078829] text-white px-2 py-0.5 rounded-full font-bold">ONLINE</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between px-2">
+<span class="text-sm font-medium">Include Prices</span>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between px-2">
+<span class="text-sm font-medium">Auto-print items</span>
+<div class="w-10 h-5 bg-[#cfe7d7] rounded-full relative">
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-[#0d1b12] font-black py-4 rounded-full flex items-center justify-center gap-3 shadow-lg hover:scale-[1.02] transition-transform" onclick="window.print()">
+<span class="material-symbols-outlined">print</span>
+                                    PRINT RECEIPT
+                                </button>
+<button class="w-full border-2 border-primary text-primary font-bold py-3 rounded-full flex items-center justify-center gap-2 hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">local_fire_department</span>
+                                    SEND TO KITCHEN
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

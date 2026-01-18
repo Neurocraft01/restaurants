@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Settings - Restaurant Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d1b12] dark:text-white font-display">
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7f3eb] dark:border-white/10 bg-white dark:bg-background-dark px-10 py-3 z-10 sticky top-0">
+<div class="flex items-center gap-4 text-[#0d1b12] dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Admin Console</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<button class="flex items-center justify-center rounded-full h-10 bg-[#e7f3eb] dark:bg-white/10 text-[#0d1b12] dark:text-white px-3 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-px bg-[#e7f3eb] dark:bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold">James Miller</p>
+<p class="text-[10px] text-[#4c9a66]">Super Admin</p>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="Portrait of the restaurant administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBg6RF9WIXhKxLRzL7ilRuum65ow2xYo4hZN3MfsB3l-ZWPoznqc7nPmmM4kZVVKVDKht-7k1-JvBkZ_SGhbZQ1yrkS7dO0d4j2lWCyhOgfy4mfLs1BRwhovFmx8YJ4CD7Yxmnu3iUFw6be1VfHSroKps9JjUYc5bgWh8jD3EV4vdsPnu3EEkzTBPYv3y48FftItXfB5ti8-F9I6xfzN0uMFVdayK4NiOrSJZouPcd6KJ_AA1sbvp2Yo4Mfw4r46lEU4_xy5Gey3gI");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex max-w-7xl mx-auto w-full px-6 py-8 gap-8">
+<!-- Left Sidebar Navigation -->
+<aside class="w-64 shrink-0">
+<div class="flex flex-col gap-6 sticky top-24">
+<div class="flex flex-col px-3">
+<h1 class="text-[#0d1b12] dark:text-white text-base font-bold">Restaurant Settings</h1>
+<p class="text-[#4c9a66] text-xs font-normal">Global management dashboard</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group" href="#">
+<span class="material-symbols-outlined text-[#0d1b12] dark:text-white">dashboard</span>
+<p class="text-[#0d1b12] dark:text-white text-sm font-semibold">Dashboard Overview</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-background-dark shadow-lg shadow-primary/20 transition-all" href="#">
+<span class="material-symbols-outlined active-nav-icon">palette</span>
+<p class="text-sm font-bold">Branding &amp; UI</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group" href="#">
+<span class="material-symbols-outlined text-[#0d1b12] dark:text-white">restaurant_menu</span>
+<p class="text-[#0d1b12] dark:text-white text-sm font-semibold">Menu Management</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group" href="#">
+<span class="material-symbols-outlined text-[#0d1b12] dark:text-white">security</span>
+<p class="text-[#0d1b12] dark:text-white text-sm font-semibold">Security Settings</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-all group" href="#">
+<span class="material-symbols-outlined text-[#0d1b12] dark:text-white">notifications_active</span>
+<p class="text-[#0d1b12] dark:text-white text-sm font-semibold">Alert Preferences</p>
+</a>
+</nav>
+<div class="mt-8 px-4 py-4 rounded-xl bg-primary/5 border border-primary/20">
+<p class="text-xs font-bold text-[#4c9a66] uppercase tracking-wider mb-2">Plan Usage</p>
+<div class="w-full bg-white dark:bg-white/10 h-1.5 rounded-full mb-2">
+<div class="bg-primary h-full rounded-full w-3/4"></div>
+</div>
+<p class="text-[10px] text-[#4c9a66]">750 / 1000 Monthly Scans</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 min-w-0">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-2 text-sm">
+<a class="text-[#4c9a66] font-medium" href="#">Settings</a>
+<span class="text-[#4c9a66] material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-[#0d1b12] dark:text-white font-bold">Branding</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-end gap-4 mb-8">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#0d1b12] dark:text-white text-4xl font-black leading-tight tracking-tight">System Settings</h1>
+<p class="text-[#4c9a66] text-base font-normal">Customize your restaurant's digital presence and manage your menu aesthetic.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-full h-11 px-6 bg-white dark:bg-white/5 border border-[#e7f3eb] dark:border-white/10 text-[#0d1b12] dark:text-white text-sm font-bold hover:bg-gray-50 transition-colors">
+                            Discard
+                        </button>
+<button class="flex items-center justify-center rounded-full h-11 px-8 bg-primary text-background-dark text-sm font-black shadow-lg shadow-primary/30 hover:scale-[1.02] transition-transform">
+                            Save Changes
+                        </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="mb-8 border-b border-[#cfe7d7] dark:border-white/10">
+<div class="flex gap-8">
+<a class="flex items-center justify-center border-b-[3px] border-primary text-[#0d1b12] dark:text-white pb-4 pt-2" href="#">
+<p class="text-sm font-bold">Visual Identity</p>
+</a>
+<a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a66] pb-4 pt-2 hover:text-[#0d1b12] dark:hover:text-white transition-colors" href="#">
+<p class="text-sm font-bold">QR Generation</p>
+</a>
+<a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a66] pb-4 pt-2 hover:text-[#0d1b12] dark:hover:text-white transition-colors" href="#">
+<p class="text-sm font-bold">Theme Config</p>
+</a>
+</div>
+</div>
+<!-- Settings Content Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<div class="xl:col-span-2 space-y-8">
+<!-- Branding Card -->
+<div class="bg-white dark:bg-white/5 rounded-xl border border-[#e7f3eb] dark:border-white/10 p-6">
+<h3 class="text-lg font-bold mb-6">General Branding</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-bold mb-2">Restaurant Logo</label>
+<div class="flex items-center gap-6">
+<div class="size-24 rounded-2xl bg-[#f8fcf9] dark:bg-white/5 border-2 border-dashed border-[#cfe7d7] dark:border-white/20 flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-1">add_a_photo</span>
+<span class="text-[10px] font-bold text-[#4c9a66]">Upload</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium mb-1">Upload a high-resolution logo</p>
+<p class="text-xs text-[#4c9a66]">PNG, JPG, or SVG. Recommended size 400x400px.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold">Restaurant Name</label>
+<input class="rounded-full bg-background-light dark:bg-white/5 border-none focus:ring-2 focus:ring-primary h-11 px-4 text-sm" type="text" value="The Green Bistro"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold">Custom Subdomain</label>
+<div class="flex items-center bg-background-light dark:bg-white/5 rounded-full px-4 h-11">
+<input class="bg-transparent border-none focus:ring-0 p-0 text-sm flex-1" type="text" value="green-bistro"/>
+<span class="text-xs font-bold text-[#4c9a66]">.menu.app</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Theme Selection -->
+<div class="bg-white dark:bg-white/5 rounded-xl border border-[#e7f3eb] dark:border-white/10 p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold">QR Menu Theme</h3>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full tracking-wider">Preview Active</span>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="cursor-pointer group">
+<div class="aspect-square rounded-2xl bg-primary mb-2 border-4 border-white dark:border-background-dark ring-2 ring-primary"></div>
+<p class="text-center text-xs font-bold">Emerald</p>
+</div>
+<div class="cursor-pointer group">
+<div class="aspect-square rounded-2xl bg-[#3b82f6] mb-2 border-4 border-transparent group-hover:border-primary/20 transition-all"></div>
+<p class="text-center text-xs font-bold">Ocean</p>
+</div>
+<div class="cursor-pointer group">
+<div class="aspect-square rounded-2xl bg-[#f59e0b] mb-2 border-4 border-transparent group-hover:border-primary/20 transition-all"></div>
+<p class="text-center text-xs font-bold">Amber</p>
+</div>
+<div class="cursor-pointer group">
+<div class="aspect-square rounded-2xl bg-[#ef4444] mb-2 border-4 border-transparent group-hover:border-primary/20 transition-all"></div>
+<p class="text-center text-xs font-bold">Ruby</p>
+</div>
+</div>
+</div>
+<!-- Notification Settings -->
+<div class="bg-white dark:bg-white/5 rounded-xl border border-[#e7f3eb] dark:border-white/10 p-6">
+<h3 class="text-lg font-bold mb-4">Notification Preferences</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-xl bg-background-light dark:bg-white/5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div>
+<p class="text-sm font-bold">New Order Alerts</p>
+<p class="text-[10px] text-[#4c9a66]">Get notified immediately when a guest orders</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-background-light dark:bg-white/5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">inventory</span>
+</div>
+<div>
+<p class="text-sm font-bold">Low Inventory Warnings</p>
+<p class="text-[10px] text-[#4c9a66]">Alerts for items falling below threshold</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Preview -->
+<div class="xl:col-span-1">
+<div class="sticky top-24 space-y-6">
+<div class="bg-[#102216] text-white rounded-[2.5rem] p-4 border-[12px] border-[#07110a] shadow-2xl relative overflow-hidden h-[600px] w-full max-w-[320px] mx-auto">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#07110a] rounded-b-2xl"></div>
+<div class="mt-10 px-4">
+<div class="flex justify-between items-center mb-8">
+<span class="material-symbols-outlined text-white">menu</span>
+<div class="size-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+<div class="bg-primary size-full flex items-center justify-center font-bold text-background-dark text-lg">G</div>
+</div>
+<span class="material-symbols-outlined text-white">search</span>
+</div>
+<h2 class="text-xl font-black mb-1">The Green Bistro</h2>
+<p class="text-xs text-primary mb-6">Table #14 • Digital Menu</p>
+<div class="space-y-4">
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<div class="bg-primary text-background-dark px-4 py-1.5 rounded-full text-[10px] font-bold shrink-0">Popular</div>
+<div class="bg-white/10 text-white px-4 py-1.5 rounded-full text-[10px] font-bold shrink-0">Breakfast</div>
+<div class="bg-white/10 text-white px-4 py-1.5 rounded-full text-[10px] font-bold shrink-0">Mains</div>
+</div>
+<div class="bg-white/5 rounded-2xl p-3 border border-white/10 flex gap-3">
+<div class="size-16 rounded-xl bg-cover bg-center" data-alt="Avocado toast on a plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8tcbZHG1ikuw-Q_uhtox6Bkkd6nCh7eY7t7uhxPKK_mwxtqDgOLhNArd94QD33a1pYWVmd5rerW0aghM91ObUKxk-rzN8jO6IDC6X3yOpTO14NkB_n_cYB1V1Vw24we8RS_rc7xewOovgnRPCgMflllu2RXL6mRwmGWKjypwSgzDGQiVDQ60w6ee5aSRzfHCPc-B9VVBYLwtAXbREOQxL0LxfeCV51z4fC7KYYqIYWW9WMIDeEzGQ189tN7A0OBemLMLtNTNEkX8");'></div>
+<div class="flex-1">
+<p class="text-xs font-bold">Avocado Smash</p>
+<p class="text-[10px] text-white/60">$14.00</p>
+<div class="mt-2 flex justify-end">
+<div class="size-6 bg-primary rounded-full flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/5 rounded-2xl p-3 border border-white/10 flex gap-3 opacity-60">
+<div class="size-16 rounded-xl bg-cover bg-center" data-alt="Iced coffee with milk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbdD0TbzcDTe98c5IrHgG4W6iOIykkJh-umGTPTxM3-28iDCv-LS8IOhI-ZSdRUpHSS6xkFTQ4qFB0Y5XPF3eF3W7iXz__Fqn-nhIOTJ_9a3RBpkEx-17GuwKz9LbbhSEPy7t0UTbKAv__PIEunnZ9EPSvR4xK2ScdQaU29Krq-Ds2jhUgdcc92roAyCQvnHByiitfD_1xtnCK5XXUzEauL3lzPEEqgDLA-yxd7cZqM_ymz7M1RCBI0VPQQAYctb1C3XSDDG5WBc8");'></div>
+<div class="flex-1">
+<p class="text-xs font-bold">Iced Latte</p>
+<p class="text-[10px] text-white/60">$5.50</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6">
+<button class="w-full bg-primary text-background-dark py-3 rounded-full text-xs font-black flex items-center justify-center gap-2">
+                                            View My Cart (2)
+                                        </button>
+</div>
+</div>
+</div>
+<p class="text-center text-xs font-bold text-[#4c9a66]">LIVE MENU PREVIEW</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Feedback -->
+<footer class="mt-auto py-6 border-t border-[#e7f3eb] dark:border-white/10 bg-white dark:bg-background-dark text-center">
+<p class="text-xs text-[#4c9a66] font-medium">© 2024 GreenMenu Admin. All systems operational.</p>
+</footer>
+</div>
+</body></html>

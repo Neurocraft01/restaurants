@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Bistro | Digital Menu</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-primary {
+            box-shadow: 0 4px 20px -2px rgba(43, 238, 108, 0.4);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b12] dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-[#e7f3eb] dark:border-[#1a3a25] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-4 lg:px-40">
+<div class="flex items-center gap-4 text-[#0d1b12] dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold leading-tight tracking-tight">VISTA BISTRO</h2>
+</div>
+<div class="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-sm text-primary">pin_drop</span>
+<p class="text-sm font-semibold">Table 12</p>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-[#4c9a66] flex border-none bg-[#e7f3eb] dark:bg-[#1a3a25] items-center justify-center pl-4 rounded-l-full">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-[#e7f3eb] dark:bg-[#1a3a25] dark:text-white focus:ring-0 h-full placeholder:text-[#4c9a66] px-4 rounded-r-full text-sm font-normal" placeholder="Search menu..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-full size-10 bg-[#e7f3eb] dark:bg-[#1a3a25] text-[#0d1b12] dark:text-white">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 pb-20">
+<!-- Headline Section -->
+<div class="px-6 md:px-10 lg:px-20 pt-10 pb-4">
+<h1 class="text-[#0d1b12] dark:text-white tracking-tight text-4xl font-extrabold leading-tight">Welcome to Vista.</h1>
+<p class="text-[#4c9a66] dark:text-primary/70 text-lg font-medium mt-1">Hand-crafted flavors, delivered to your table.</p>
+</div>
+<!-- Category Chips -->
+<div class="px-6 md:px-10 lg:px-20 py-4 flex gap-3 overflow-x-auto no-scrollbar scroll-smooth">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-6 pr-6 cursor-pointer">
+<p class="text-[#0d1b12] text-sm font-bold leading-normal">All Items</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#e7f3eb] dark:bg-[#1a3a25] pl-6 pr-6 cursor-pointer hover:bg-primary/20 transition-colors">
+<p class="text-[#0d1b12] dark:text-white text-sm font-medium leading-normal">Appetizers</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#e7f3eb] dark:bg-[#1a3a25] pl-6 pr-6 cursor-pointer hover:bg-primary/20 transition-colors">
+<p class="text-[#0d1b12] dark:text-white text-sm font-medium leading-normal">Main Courses</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#e7f3eb] dark:bg-[#1a3a25] pl-6 pr-6 cursor-pointer hover:bg-primary/20 transition-colors">
+<p class="text-[#0d1b12] dark:text-white text-sm font-medium leading-normal">Refreshments</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#e7f3eb] dark:bg-[#1a3a25] pl-6 pr-6 cursor-pointer hover:bg-primary/20 transition-colors">
+<p class="text-[#0d1b12] dark:text-white text-sm font-medium leading-normal">Sweet Treats</p>
+</div>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-10 lg:px-20">
+<!-- Item Card 1 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="close up of a gourmet truffle beef burger" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMrukhUR3wqjspUszJdnktpzqISFDy24Bke0fY3DoEE66IMIx7S-OCScDRPYc5S9APyMXpWYQKaNriN7uGUNUO0JUoiuHWp1CFlagQ-TYCJu0PbVE0JmrjVPNO7Yd_lIc_qngYjb7HDXvTdPmYgzReO8Z7c8DRMf6RlIhsg_99wHpgWFKgxrXRNLj7olMBoApNmut5fAzBv2BAJtKh8DQE1Eku_7OQEfKln3ZN7E-WpQPgPnsd9peNTBmeuGAG_GTkynZT2FLfwy0");'>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-primary">POPULAR</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Black Truffle Burger</h3>
+<span class="text-primary text-lg font-extrabold">$24.00</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">Aged wagyu beef, black truffle aioli, balsamic glazed onions, and fontina cheese on a toasted brioche bun.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="fresh mediterranean garden salad with feta" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPUF-MrJ57cBFdaeHMqryhH0UKX3fhzj9-C-EaFYu4PQs38kZVdywWr6qS_ZtCyLKgA1BvnZ1z6Yy0VPE0YeRcSof8b0hfh_p2ib_SiV7OSwv63EUovCF_-A88rY2DqrZW987BxWG6U5JlwKu42Y7lXwAItxLKV3ZvV9oIsZLSSXiQydv1TdXpj47mrAg1DvtiWmHd4y01IGNHcmepD-U9b__ZfrsLEjDlNuHnH8yOuAkEdfwK38DhIpNFPYGTXlg5BYOrqxx-X9I");'>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-primary">VEGAN</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Heirloom Garden Salad</h3>
+<span class="text-primary text-lg font-extrabold">$16.50</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">Organic heirloom tomatoes, cucumber ribbons, pickled radishes, and toasted pine nuts with lemon vinaigrette.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="pan seared scallops on a white plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHO4jHWhQFYBC_bPkwPoSCaZTmfNQ3kFUUUO2_27HhSkDyK6aAhDWcvOX1ppt0wHwRP_KzmqXecwO5dGZZZcVfvIjyFjIzoIV4zbyxkGxg4MV6xObIisRqtzPvXwUsEKX04hIv78ynLcQo75h11_D0KA4RvKnt9kYZlfWDY7tTNMgBc0K2X4YCFc5Zf8cG_eDsDY1aJhe033Gy6_waNN-xYM2uVmZneSt94X0ZsDD5gT2BySvyF44xj9XxbSa7N4bOuHpii8VgjaM");'>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Pan-Seared Scallops</h3>
+<span class="text-primary text-lg font-extrabold">$32.00</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">Hokkaido scallops, cauliflower purée, crispy prosciutto, and micro-herbs with brown butter drizzle.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Item Card 4 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="artisan neapolitan pizza with basil" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAw55vx9T5mfDU1vwjuMQvHP6auvmUGi8ZnDvc0ekLQ3YRACFIERL9z7G3BEadCsmTzqE4JFDAYCUmAR-xHGolwgqV73D1wydAkFg6helQQH2w-Z3BhyrTbm_1o-mZtogiLp1McUvOzPLUQVREB4S1tewvyIzlzTyb-7IkXbiGEky306AwURCCMpbBdx--3XfzR7Vk-UOGh8xclpF5-Gme1O03y5c2JpMcCtK3NK1WfWyhiCAhkvZV9ztWLwINqH0-8Jy0ygEaeDj4");'>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Burrata Margarita</h3>
+<span class="text-primary text-lg font-extrabold">$21.00</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">Sourdough crust, San Marzano tomatoes, fresh burrata, and garden-picked basil with cold-pressed olive oil.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Item Card 5 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="molten chocolate lava cake with strawberry" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6s1n3FPoQbgCktsVH6v-oXGXwrdj_GMD_3zb_eLyXJj40kRU0ZL0iv3uCit2gEp-jw1-zCQJ5Bgiu5w3-zPQpKQVsi3Bzr15-9ZACNbnUSSkr0MjnvB7dPpu3wXKD0_GjQ0IOFZgiV6gXStPF0j7oFnOS66B_s7VnJy39zliAn6jIIkEyJi571irIA_cV_nsVm9DCVqVKZNd_pSX5yBl7uuMpgrnjOOM2g2KFEsYb4JeeKoBwnVR7mbcurru72fzDuxL_TYGReSk");'>
+<div class="absolute top-4 right-4 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-primary">NEW</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Midnight Lava Cake</h3>
+<span class="text-primary text-lg font-extrabold">$14.00</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">70% dark chocolate center, Madagascar vanilla bean gelato, and wild berry reduction.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Item Card 6 -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#1a3a25]/20 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover relative" data-alt="craft cocktail with lime and mint" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_GohdIQQfi__yMOsGAYQTirRHxzTDEis-M-wqQuqTUVo0XV8wjAB0c5D3vb0at74c9ipmVixRrqS_t5Ic9HnX5GCj0N6xDYdtoiAymt_VcbVeCcdC3IduEZ5R6LUhvUQs9mIe9unT0HEUC6JehF4BFmdkJKtXKcm1IPtZkQIq72Pu5nduQ7yzxPv6y1fu4wYJtuUgpKgiF_BZl4alG-x_Awvaui7l8-z1a0osTfU0u-uSUYhg2FQoGaGlLuNE2djab3zvugNyy5g");'>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[#0d1b12] dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Emerald Mojito</h3>
+<span class="text-primary text-lg font-extrabold">$12.00</span>
+</div>
+<p class="text-[#4c9a66] dark:text-primary/60 text-sm font-normal leading-relaxed mb-6">Premium white rum, fresh lime, garden mint, and a splash of sparkling soda with organic cane sugar.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#25d360] text-[#0d1b12] font-bold py-3 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Add to Order
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating View Cart Button -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-[480px] px-6">
+<button class="glow-primary w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 bg-primary text-[#0d1b12] text-lg font-extrabold leading-normal tracking-tight gap-4 px-8 border-4 border-white dark:border-background-dark shadow-2xl transition-transform hover:scale-105 active:scale-95">
+<div class="relative">
+<span class="material-symbols-outlined text-3xl">shopping_basket</span>
+<div class="absolute -top-1 -right-1 size-5 bg-[#0d1b12] text-white text-[10px] rounded-full flex items-center justify-center border-2 border-primary">3</div>
+</div>
+<span class="truncate">Review Order ($46.00)</span>
+</button>
+</div>
+<!-- Subtle Bottom Info -->
+<footer class="pb-32 px-10 text-center">
+<p class="text-xs text-[#4c9a66]/50">Allergy information available upon request. Prices include VAT.</p>
+</footer>
+</div>
+</div>
+</body></html>

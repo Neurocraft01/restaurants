@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RestoTech | Premium Restaurant Management</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "gold-accent": "#D4AF37",
+                        "charcoal": "#102216",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(43, 238, 108, 0.1), transparent);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-white transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-4 py-4 sm:px-10 lg:px-40">
+<nav class="flex w-full max-w-[1200px] items-center justify-between glass-card rounded-full px-8 py-3">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-charcoal text-lg">restaurant_menu</span>
+</div>
+<h2 class="text-charcoal dark:text-white text-xl font-bold leading-tight tracking-tight">RestoTech</h2>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-charcoal/70 dark:text-white/70 text-sm font-medium hover:text-primary transition-colors" href="#">Menu Solutions</a>
+<a class="text-charcoal/70 dark:text-white/70 text-sm font-medium hover:text-primary transition-colors" href="#">Admin Suite</a>
+<a class="text-charcoal/70 dark:text-white/70 text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="text-charcoal/70 dark:text-white/70 text-sm font-medium hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex min-w-[120px] items-center justify-center rounded-full h-11 px-6 bg-primary text-charcoal text-sm font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                        Get Started
+                    </button>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-charcoal dark:text-white">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<main class="flex-1 pt-32 lg:pt-40">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-6 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="@container">
+<div class="flex flex-col gap-10 lg:flex-row items-center">
+<!-- Text Content -->
+<div class="flex flex-col gap-8 lg:w-1/2">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-primary">New: 3D Menu Builder</span>
+</div>
+<h1 class="font-serif text-charcoal dark:text-white text-5xl font-bold leading-tight @[480px]:text-6xl lg:text-7xl">
+                                            The Art of <span class="text-gold-accent italic">Digital</span> Hospitality.
+                                        </h1>
+<p class="text-charcoal/60 dark:text-white/60 text-lg font-normal leading-relaxed max-w-[500px]">
+                                            Elevate your restaurant with stunning QR-based menus and powerful cloud administration designed for high-end dining experiences.
+                                        </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex min-w-[180px] items-center justify-center rounded-full h-14 px-8 bg-primary text-charcoal text-base font-bold shadow-xl shadow-primary/30 hover:bg-primary/90">
+                                            Start Free Trial
+                                        </button>
+<button class="flex min-w-[180px] items-center justify-center rounded-full h-14 px-8 border-2 border-charcoal/10 dark:border-white/10 text-charcoal dark:text-white text-base font-bold hover:bg-charcoal/5 dark:hover:bg-white/5 transition-colors">
+                                            Book a Demo
+                                        </button>
+</div>
+<div class="flex items-center gap-4 pt-4 border-t border-charcoal/5 dark:border-white/5">
+<div class="flex -space-x-3">
+<div class="size-10 rounded-full border-2 border-background-light bg-cover bg-center" data-alt="User profile portrait of a chef" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkDFmWAz8kEZSuVGbLJe47-DeSeWDWH8rjK4vlmNqoquDrC3RMM6kEhZi6OK-RN5xu82G0O7OtjWw4s0vNjGb4B4Q1yxxxaC_Z01XSkzygZWK6eyRQaWiDu6RtuszUTbpd8xWwx6QPVDTVEBWXjPca_reHvC56hS0aDOi39Zss62PcmDxgVXAylx-7QDFK34KoxhZpfhWb2DDyHG7DNnacQiuZ-F-LlWMYrk-SqvffKzLRjxYA_TWgE3Tv70bn2fynqWTddXOp8QI')"></div>
+<div class="size-10 rounded-full border-2 border-background-light bg-cover bg-center" data-alt="User profile portrait of a manager" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWetotArnMK82xdoWeadZsnLTFIUHRQ6OUPQJeDYUG4pm61Ja-nqSNhU4Mu1PlFMtIJUYl7DnFpFMbDQV84VnJKZQMugw-Cm7dEHtQjDfWtxq0T1zNA3AZJCQNShUWEbgaQRnGlbW7sCsSYRaHLF8bOCzErtk9-q4J3RGsPXyZhUHkpsQelKC1DonzDht5Sn3C9jzfbJsGZ0d39rqsfK1IHCEs5Y3gE9BXT_CYE32HHlmyu6U2z4KcI5TF6Dz7zijmUprS7nINCV4')"></div>
+<div class="size-10 rounded-full border-2 border-background-light bg-cover bg-center" data-alt="User profile portrait of an owner" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnIBcamue0_tRSLugyLfsales83ToFp-oQX9S5lBcKkggorEn-ydjSN3B7UxT4DDm5HFLM-myfx8c-61c7us4Z8edZnyNzk-7Zpi4Je1JQJhnzYkoBKZ9MbIgnl2hfkurOLXWFiWUdNEfU-XZqFIkDXXS5BBeAu4a71rNCBBBUdRQXmzmnGzCLEX-0_8WU-iu0eBn4blxQMoXZ6sAUbRFDyvE4Cfs-8YatkJP1UnTbiEtRrZZLneI-9JpJ1ZABTXT6yMFb2eWtVww')"></div>
+</div>
+<p class="text-sm text-charcoal/50 dark:text-white/50"><span class="font-bold text-charcoal dark:text-white">500+</span> luxury venues joined this month</p>
+</div>
+</div>
+<!-- 3D/Glassmorphism Image Placeholder -->
+<div class="lg:w-1/2 relative w-full aspect-square max-w-[600px]">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+<div class="relative w-full h-full flex items-center justify-center">
+<!-- Main Mobile Menu Card -->
+<div class="glass-card w-[280px] h-[580px] rounded-[3rem] p-4 flex flex-col gap-4 border-4 border-charcoal relative z-20 shadow-2xl">
+<div class="w-20 h-1.5 bg-charcoal/20 rounded-full self-center mb-2"></div>
+<div class="w-full aspect-[4/3] rounded-2xl bg-cover bg-center" data-alt="High quality photography of a signature steak dish" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHT_ppKGZptNNgJP7EWn9R6vmMG97uqhHjvPP74v-lrIsl4CcNDItdvbwBn8XgY873Bc8VAXk0pTRnpYRYDqYJ_E_ABVzkYPFga1dC2xkbPJvToBBeFkSL3ephKaGs-kDyRg-HQxfK2UD0bcQw4vWWYASexfJf6VflIKSTPrh0DIWYesjSL590oH69yVXCDH0rvknH3av9CBsJlXCcdQ289be339-g247X-XIg8ZyGMXhMAvIRnaU49FlmAhSwIArMjvM81EMxxaM')"></div>
+<div class="px-2 space-y-3">
+<h3 class="font-serif text-xl font-bold">Wagyu Tenderloin</h3>
+<p class="text-[10px] text-charcoal/60 leading-tight">Char-grilled, truffle mash, seasonal vegetables, red wine reduction.</p>
+<div class="flex justify-between items-center pt-2">
+<span class="text-lg font-bold text-primary">$48.00</span>
+<button class="size-8 bg-charcoal rounded-full text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="mt-auto p-4 bg-charcoal text-white rounded-2xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[8px] uppercase tracking-widest opacity-60">Subtotal</span>
+<span class="text-sm font-bold">$124.50</span>
+</div>
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+</div>
+<!-- Floating Admin UI Card -->
+<div class="absolute top-[10%] -right-4 glass-card p-6 rounded-2xl w-64 z-30 shadow-2xl border border-white/50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h4 class="text-xs font-bold uppercase tracking-widest">Live Sales</h4>
+</div>
+<div class="text-2xl font-black text-charcoal">$3,428.00</div>
+<div class="flex items-center gap-1 text-[10px] text-primary font-bold mt-1">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+<span>+12.5% vs yesterday</span>
+</div>
+</div>
+<!-- QR Card -->
+<div class="absolute bottom-[20%] -left-8 glass-card p-4 rounded-2xl w-40 z-30 shadow-2xl border border-white/50 flex flex-col items-center gap-2">
+<div class="size-24 bg-charcoal rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl">qr_code_2</span>
+</div>
+<span class="text-[10px] font-bold text-charcoal/60">Table 12 - Ready</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Feature Section -->
+<section class="bg-charcoal text-white py-24 sm:py-32">
+<div class="px-6 lg:px-40 flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-col gap-16">
+<div class="flex flex-col gap-4 text-center items-center">
+<h2 class="font-serif text-4xl sm:text-5xl font-bold max-w-[800px]">
+                                Crafted for Excellence in Every Service.
+                            </h2>
+<div class="w-24 h-1 bg-primary rounded-full mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-charcoal transition-colors">qr_code</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-serif text-2xl font-bold">Contactless Ordering</h3>
+<p class="text-white/60 leading-relaxed">Let your guests browse your menu with zero friction. High-resolution imagery meets lightning-fast performance.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-charcoal transition-colors">settings_input_component</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-serif text-2xl font-bold">Menu Orchestration</h3>
+<p class="text-white/60 leading-relaxed">Update seasonal specials, prices, and availability across all devices instantly with our intuitive admin suite.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-charcoal transition-colors">insights</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-serif text-2xl font-bold">Intelligent Insights</h3>
+<p class="text-white/60 leading-relaxed">Understand customer behavior with heatmaps and ordering trends to optimize your revenue per table.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Responsiveness Showcase -->
+<section class="py-24 sm:py-32 bg-background-light">
+<div class="px-6 lg:px-40 flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8 order-2 lg:order-1">
+<h2 class="font-serif text-4xl sm:text-5xl font-bold text-charcoal">Control your floor from <span class="text-primary italic">any</span> device.</h2>
+<p class="text-charcoal/60 text-lg leading-relaxed">Whether you're on a floor manager's tablet or the owner's smartphone, RestoTech provides a seamless, high-performance interface that never lets you down.</p>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4">
+<div class="size-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<span class="text-charcoal font-semibold">Real-time sync between kitchen and floor</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<span class="text-charcoal font-semibold">Offline mode for uninterrupted service</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<span class="text-charcoal font-semibold">Customizable UI themes for your brand</span>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="relative w-full max-w-[500px] aspect-video">
+<!-- Tablet Mockup -->
+<div class="absolute inset-0 bg-charcoal rounded-[2rem] border-[10px] border-charcoal shadow-2xl overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-90" data-alt="Screenshot of administrative dashboard with sales charts" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX2_OlDVd71gIoAJie_f-Evs7KTzBB0AdoUV7KuwdHKkXIsXE7OG9zTzRb9-T9DB_fIGiiMJ7yxDfVQ72IIeJKI7IR8z_3ZKNp2qOr4PW8V5bpRpsywOrIH1o9t7_aUDHsqsP3PxltQ0JJBoFEGWCVkx-kMJr7XJkeivoN18y9vK0BtHC-yTszRSSE3u7I2PNlmHu-5WJr8sAckihAEqx2isd5ybvdPXPBpLocZGPtMjqmPFLKMwzldSgDCNeiGzowVlQJ3YQC2u0')"></div>
+</div>
+<!-- Floating Mobile Mockup -->
+<div class="absolute -bottom-10 -left-10 w-32 h-64 bg-charcoal rounded-[1.5rem] border-[4px] border-charcoal shadow-2xl z-10 hidden sm:block">
+<div class="w-full h-full bg-cover bg-center rounded-2xl overflow-hidden" data-alt="Mobile view of a restaurant digital menu" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDwMDs4CQTcQHErHUPCI-ho_jzCv81SnquRwRHoq65IRhDJRFeousvBb5MqlgvqpcIgcbhC_Riw61f6yc5CgebozlTGVrBEq6IWgO5p0SGjo8BrU9c29I4ZLdpR2dLTvgy64oLlcIjasTfMEBWLllSMVb3_WH042UtRjFT2smsZUmLG8J9N0NXEGLHpPvKnDAIVvzh6XksZ30aeM3LSZSqn6FBBwA8GJ9QRbJ7kGxxxFjTfWqLQIE7q9PSSNsp2pvaQNh99Zb9pdQ')"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 sm:py-32">
+<div class="px-6 lg:px-40 flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 bg-charcoal rounded-[3rem] p-10 sm:p-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-gold-accent/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 flex flex-col items-center text-center gap-8">
+<h2 class="font-serif text-4xl sm:text-6xl font-bold text-white max-w-[700px]">Ready to transform your service?</h2>
+<p class="text-white/60 text-lg sm:text-xl max-w-[600px]">Join 2,500+ premium restaurants worldwide and start your digital journey today.</p>
+<div class="flex flex-col sm:flex-row gap-6 mt-4">
+<button class="flex min-w-[200px] items-center justify-center rounded-full h-16 px-8 bg-primary text-charcoal text-lg font-bold shadow-2xl shadow-primary/30 hover:scale-105 transition-transform">
+                                Get Started Now
+                            </button>
+<button class="flex min-w-[200px] items-center justify-center rounded-full h-16 px-8 border-2 border-white text-white text-lg font-bold hover:bg-white hover:text-charcoal transition-all">
+                                Contact Sales
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-light py-12 border-t border-charcoal/5">
+<div class="px-6 lg:px-40 flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col gap-6 max-w-[300px]">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-charcoal text-lg">restaurant_menu</span>
+</div>
+<h2 class="text-charcoal text-xl font-bold">RestoTech</h2>
+</div>
+<p class="text-charcoal/50 text-sm leading-relaxed">The premier choice for luxury restaurant management systems, bringing the elegance of tradition into the digital age.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-charcoal uppercase text-xs tracking-widest">Product</h4>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Integrations</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-charcoal uppercase text-xs tracking-widest">Support</h4>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Docs</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Academy</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">API</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-charcoal uppercase text-xs tracking-widest">Company</h4>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">About</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Blog</a>
+<a class="text-charcoal/50 text-sm hover:text-primary transition-colors" href="#">Careers</a>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-charcoal/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-charcoal/40 text-xs">© 2024 RestoTech Systems Inc. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-charcoal/40 text-xs hover:text-charcoal transition-colors" href="#">Privacy Policy</a>
+<a class="text-charcoal/40 text-xs hover:text-charcoal transition-colors" href="#">Terms of Service</a>
+<a class="text-charcoal/40 text-xs hover:text-charcoal transition-colors" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

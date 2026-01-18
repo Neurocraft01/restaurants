@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Receipt - Bistro Modern</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: "Plus Jakarta Sans", sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .receipt-card { 
+                box-shadow: none !important; 
+                border: 1px solid #e5e7eb !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d1b12] dark:text-white transition-colors duration-300">
+<!-- Top Navigation -->
+<header class="no-print sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-background-dark">restaurant</span>
+</div>
+<h2 class="text-lg font-extrabold tracking-tight">Bistro Modern</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Menu</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">My Orders</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="size-9 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAyuYHe-B4uRPTG6IyD6DK3DTh8gQSdjsdNuKCFArhAi64foTspEhH7d4GJdptICUaemEXahKo1TTv4NyUXkeQr1kaThcS8Jg-gn3GqnSl8xpcHVJ-o7zn9G9IkqwcvPUPp085MZys9kroOR5wFgSpew_mFrUNsgtqSLBTv38yZQdhyKC7aPTKsEpjeYzGPZr10AiE00mVoT_h7F3DJsi2uSMUVGjuAuEUBh3sPqY5azjSwAoyLnCK5YZRoAg4TCJ3LXCfh7xKK0hw');"></div>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-12 flex flex-col items-center">
+<!-- Success Animation & Header -->
+<div class="no-print flex flex-col items-center text-center mb-10">
+<div class="size-20 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-5xl font-bold">check_circle</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-extrabold mb-2">Order Placed Successfully!</h1>
+<p class="text-gray-500 dark:text-gray-400 text-lg">Your food is being prepared. Enjoy your meal!</p>
+<div class="mt-4 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">table_restaurant</span>
+<span class="text-primary font-bold text-sm tracking-wide">TABLE NUMBER: 12</span>
+</div>
+</div>
+<!-- Screenshot-ready Digital Receipt Card -->
+<div class="receipt-card w-full max-w-[480px] bg-white dark:bg-[#1a2e20] rounded-xl shadow-2xl overflow-hidden flex flex-col relative border border-gray-100 dark:border-gray-800">
+<!-- Receipt Top Decoration -->
+<div class="h-2 bg-primary w-full"></div>
+<div class="p-8 flex flex-col">
+<!-- Receipt Header -->
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-2xl font-extrabold text-[#0d1b12] dark:text-white">Bistro Modern</h3>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1">123 Culinary Ave, Gastronomy City</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Order ID</p>
+<p class="text-sm font-bold text-primary">#BM-88291</p>
+</div>
+</div>
+<!-- Date & Table Meta -->
+<div class="flex justify-between border-y border-dashed border-gray-200 dark:border-gray-700 py-4 mb-6">
+<div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Date &amp; Time</p>
+<p class="text-sm font-semibold">Oct 24, 2023 • 12:45 PM</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Server</p>
+<p class="text-sm font-semibold">Self-Order</p>
+</div>
+</div>
+<!-- Items Summary -->
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-gray-400 bg-gray-100 dark:bg-gray-800 size-6 flex items-center justify-center rounded">1</span>
+<span class="text-sm font-semibold">Truffle Umami Burger</span>
+</div>
+<span class="text-sm font-bold">$18.50</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-gray-400 bg-gray-100 dark:bg-gray-800 size-6 flex items-center justify-center rounded">2</span>
+<span class="text-sm font-semibold">Truffle Fries</span>
+</div>
+<span class="text-sm font-bold">$12.00</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-gray-400 bg-gray-100 dark:bg-gray-800 size-6 flex items-center justify-center rounded">1</span>
+<span class="text-sm font-semibold">Signature Iced Latte</span>
+</div>
+<span class="text-sm font-bold">$6.50</span>
+</div>
+</div>
+<!-- Totals Section -->
+<div class="space-y-2 border-t border-gray-100 dark:border-gray-800 pt-6 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Subtotal</span>
+<span class="font-semibold">$37.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-500">Tax (8%)</span>
+<span class="font-semibold">$2.96</span>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-lg font-extrabold">Total Amount</span>
+<span class="text-2xl font-black text-primary">$39.96</span>
+</div>
+</div>
+<!-- Bottom QR Section -->
+<div class="flex flex-col items-center justify-center bg-gray-50 dark:bg-black/20 p-6 rounded-xl border border-dashed border-gray-200 dark:border-gray-700">
+<div class="size-32 bg-white p-2 rounded-lg shadow-sm mb-3">
+<div class="size-full bg-cover bg-center" data-alt="Digital QR code for order tracking" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhLtgPf_BR7_pXnQEfImcSn0SX0bynCd7blIqxxMSAZpNvkuXHnQTywJ4nmYg0LW4qPskONefWtprxcIKnYZIJpRJLyqhrA-K_6wL4ZqKmHWSJd1jbiLKSv7YN44hjNoeFzi077ylxbY-gWjSaddZftteUlPeLinyiBxKcpixjf_APPHnzGPc-n0RYzDyxszNgIHCGS5_M8zwvsoCM4hKT7hKUCnz1bL1Sj6D6hYqIhGuNzHZ_MlUUpH88BFSzig2I9zwjfDUPMgA');"></div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] text-center">Scan to Track Status</p>
+</div>
+</div>
+<!-- Perforated Bottom Design -->
+<div class="flex justify-between px-2 pb-1 relative bottom-[-1px]">
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+<div class="size-4 bg-background-light dark:bg-background-dark rounded-full -mt-2"></div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="no-print mt-12 flex flex-col sm:flex-row gap-4 w-full max-w-[480px]">
+<button class="flex-1 bg-primary text-background-dark font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-primary/20" onclick="window.print()">
+<span class="material-symbols-outlined">print</span>
+                Print Receipt
+            </button>
+<button class="flex-1 bg-white dark:bg-gray-800 text-[#0d1b12] dark:text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined">download</span>
+                Save Image
+            </button>
+</div>
+<button class="no-print mt-8 text-sm font-bold text-gray-400 hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to Menu
+        </button>
+</main>
+<footer class="no-print py-10 mt-10 border-t border-gray-100 dark:border-gray-900 text-center">
+<p class="text-sm text-gray-400">© 2023 Bistro Modern Ordering System. All rights reserved.</p>
+</footer>
+</body></html>
