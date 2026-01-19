@@ -60,23 +60,38 @@ export function Hero() {
         // Small delay to ensure DOM element exists
         setTimeout(startScanner, 100)
     } else {
-        // Cleanup function for when scanning stops
+        // Cleanup logic for when scanning stops
         if (scannerRef.current) {
-             scannerRef.current.stop().then(() => {
-                 if (scannerRef.current) {
-                    scannerRef.current.clear()
-                    scannerRef.current = null
-                 }
-             }).catch(console.error)
+             const scannerToStop = scannerRef.current
+             scannerRef.current = null // Clear ref immediately to prevent race conditions
+            
+             // Wrap stop in a try/catch to handle "not running" errors safely
+             try {
+                // If it's already paused or stopped, this might throw
+                // We can't easily check isScanning state synchronously from the library
+                scannerToStop.stop().then(() => {
+                    scannerToStop.clear()
+                }).catch((err) => {
+                    console.warn("Scanner stop warning:", err)
+                    scannerToStop.clear()
+                })
+             } catch (e) {
+                console.warn("Scanner cleanup error:", e)
+             }
         }
     }
 
     return () => {
         isMounted = false;
-        if (scannerRef.current && scannerRef.current.isScanning) {
-             scannerRef.current.stop().then(() => {
-                 scannerRef.current?.clear()
-             }).catch(console.error)
+        if (scannerRef.current) {
+             const scannerToStop = scannerRef.current
+             scannerRef.current = null
+             
+             scannerToStop.stop().then(() => {
+                 scannerToStop.clear()
+             }).catch((err) => {
+                 console.warn("Scanner cleanup warning on unmount:", err)
+             })
         }
     }
   }, [isScanning])
