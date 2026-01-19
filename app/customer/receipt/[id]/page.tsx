@@ -182,8 +182,8 @@ export default function ReceiptPage() {
           <div className="mb-8 pb-8 border-b border-border print:pb-6">
             <h3 className="font-serif font-bold text-foreground mb-4">Order Items</h3>
             <div className="space-y-3">
-              {order.items.map((item: any) => (
-                <div key={item.id} className="flex justify-between text-sm">
+              {order.items.map((item: any, index: number) => (
+                <div key={item.id || index} className="flex justify-between text-sm">
                   <div>
                     <p className="font-medium text-foreground">{item.menuItemName}</p>
                     <p className="text-muted-foreground text-xs">Qty: {item.quantity}</p>
