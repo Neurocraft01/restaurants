@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { dbOperations } from "@/lib/db"
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const order = await dbOperations.getOrder(params.id)
     if (!order) {
@@ -13,7 +14,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const { status } = await req.json()
     const order = await dbOperations.updateOrderStatus(params.id, status)

@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { dbOperations } from "@/lib/db"
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const data = await req.json()
     const item = await dbOperations.updateMenuItem(params.id, data)
@@ -14,7 +15,8 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     // Delete from DB
     return NextResponse.json({ message: "Deleted" })
