@@ -7,7 +7,9 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ShoppingCart, ArrowLeft, LogIn } from "lucide-react"
+import { ShoppingCart, ArrowLeft, LogIn, Check, Plus } from "lucide-react"
+import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 interface MenuItem {
   id: string
@@ -29,6 +31,10 @@ export default function PublicMenuPage() {
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
+
+  // Animation states
+  const [animatingCart, setAnimatingCart] = useState(false)
+  const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     fetchMenuItems()
@@ -75,6 +81,7 @@ export default function PublicMenuPage() {
   })
 
   const addToCart = (item: MenuItem) => {
+    // 1. Add item logic
     const existingItem = cart.find((cartItem) => cartItem.id === item.id)
     if (existingItem) {
       setCart(
@@ -83,6 +90,27 @@ export default function PublicMenuPage() {
     } else {
       setCart([...cart, { ...item, quantity: 1 }])
     }
+
+    // 2. Trigger item animation
+    setAnimatingItems(prev => ({ ...prev, [item.id]: true }))
+    setTimeout(() => {
+        setAnimatingItems(prev => ({ ...prev, [item.id]: false }))
+    }, 600)
+
+    // 3. Trigger cart animation
+    setAnimatingCart(true)
+    setTimeout(() => {
+        setAnimatingCart(false)
+    }, 300)
+
+    // 4. Show success toast (only show if not too frequent to avoid spamming)
+    // We can use the toast promise or just a simple success
+    toast.success(`Added ${item.name}`, {
+        description: "Your order has been updated",
+        duration: 1500,
+        position: "bottom-center",
+        icon: <div className="bg-primary text-primary-foreground rounded-full p-1"><Check className="w-3 h-3" /></div>
+    })
   }
 
   const removeFromCart = (itemId: string) => {
@@ -186,9 +214,23 @@ export default function PublicMenuPage() {
                           e.stopPropagation();
                           addToCart(item);
                       }}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className={cn(
+                          "w-full transition-all duration-300 transform",
+                          animatingItems[item.id] 
+                              ? "bg-green-600 hover:bg-green-700 text-white scale-95" 
+                              : "bg-primary hover:bg-primary/90 text-primary-foreground"
+                      )}
+                      disabled={animatingItems[item.id]}
                     >
-                      Add to Order
+                      {animatingItems[item.id] ? (
+                          <span className="flex items-center animate-in fade-in zoom-in duration-300">
+                               <Check className="mr-2 h-4 w-4" /> Added
+                          </span>
+                      ) : (
+                          <span className="flex items-center">
+                               <Plus className="mr-2 h-4 w-4" /> Add to Order
+                          </span>
+                      )}
                     </Button>
                   </div>
                 </Card>
@@ -204,10 +246,15 @@ export default function PublicMenuPage() {
 
           {/* Cart Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-24 border-border shadow-md">
+            <Card className={cn(
+                "sticky top-24 border-border shadow-md transition-all duration-300",
+                animatingCart ? "shadow-primary/30 scale-[1.02] ring-2 ring-primary/20" : ""
+            )}>
                 <div className="p-4 bg-muted/40 border-b border-border">
                     <h3 className="font-serif font-bold text-lg flex items-center gap-2">
-                        <ShoppingCart className="w-5 h-5 text-primary" />
+                        <div className={cn("transition-transform", animatingCart ? "animate-bounce" : "")}>
+                             <ShoppingCart className="w-5 h-5 text-primary" />
+                        </div>
                         Your Order
                     </h3>
                 </div>
